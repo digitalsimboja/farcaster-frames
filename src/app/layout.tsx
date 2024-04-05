@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Framecast by Evveland Metaverse",
   other: {
     ["fc:frame"]: "vNext",
-    ["fc:frame:image"]: "https://frames-gilt.vercel.app/site-preview.jpg",
+    ["fc:frame:image"]: `${config.hostUrl}/images/og.jpeg`,
     ["fc:frame:button:1"]: "Start Quiz",
     ["fc:frame:post_url"]: `${config.hostUrl}/api/api/questions?id=1`,
   },
