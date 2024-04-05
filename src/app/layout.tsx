@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     ["fc:frame"]: "vNext",
     ["fc:frame:image"]: "https://farcaster-frames-sigma.vercel.app/images/og.jpeg",
     ["fc:frame:button:1"]: "Start Quiz",
-    ["fc:frame:post_url"]: `${config.hostUrl}/api/api/questions?id=1`,
+    ["fc:frame:post_url"]: `${config.hostUrl}/api/questions?id=1`,
   },
   openGraph: {
     images: [
