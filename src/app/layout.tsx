@@ -1,4 +1,3 @@
-import { getFrameMetadata } from "@coinbase/onchainkit/frame";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -7,37 +6,21 @@ import { config } from "@/config/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const frameMetadata = getFrameMetadata({
-  buttons: [
-    {
-      label: "Start Quiz!",
-    },
-  ],
-  image: {
-    src: `${config.hostUrl}/images/og.jpeg`,
-  },
-  input: {
-    text: "Your Email",
-  },
-  postUrl: `${config.hostUrl}/api/questions`,
-});
-
 export const metadata: Metadata = {
-  title: "Evveland Metaverse Framecast",
-  description: "Framecast by Evveland Metaverse",
+  title: 'Evveland Weekly Contest',
+  description: 'A weekly contest by Evveland',
   openGraph: {
-    images: [
-      {
-        url: `${config.hostUrl}/images/og.jpeg`,
-        width: 800,
-        height: 600,
-      },
-    ],
+    title: 'Evveland Weekly Contest',
+    description: 'A weekly contest by Evveland',
+    images: [`${config.hostUrl}/site-preview.jpg`],
   },
   other: {
-    ...frameMetadata,
+    'fc:frame': 'vNext',
+    'fc:frame:image': `${config.hostUrl}/images/og.jpeg`,
+    'fc:frame:post_url': `${config.hostUrl}/api/questions?id=1`,
+    'fc:frame:button:1': 'Start Quiz!',
   },
-};
+}
 
 export default function RootLayout({
   children,
