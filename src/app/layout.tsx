@@ -1,3 +1,4 @@
+import { getFrameMetadata } from "@coinbase/onchainkit/frame";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -6,15 +7,24 @@ import { config } from "@/config/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const frameMetadata = getFrameMetadata({
+  buttons: [
+    {
+      label: "Start Quiz!",
+    },
+  ],
+  image: {
+    src: `${config.hostUrl}/images/og.jpeg`,
+  },
+  input: {
+    text: "Your Email",
+  },
+  postUrl: `${config.hostUrl}/api/questions`,
+});
+
 export const metadata: Metadata = {
   title: "Evveland Metaverse Framecast",
   description: "Framecast by Evveland Metaverse",
-  other: {
-    ["fc:frame"]: "vNext",
-    ["fc:frame:image"]: "https://farcaster-frames-sigma.vercel.app/images/og.jpeg",
-    ["fc:frame:button:1"]: "Start Quiz",
-    ["fc:frame:post_url"]: `${config.hostUrl}/api/questions?id=1`,
-  },
   openGraph: {
     images: [
       {
@@ -23,6 +33,9 @@ export const metadata: Metadata = {
         height: 600,
       },
     ],
+  },
+  other: {
+    ...frameMetadata,
   },
 };
 
