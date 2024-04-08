@@ -6,8 +6,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const id = searchParams.get('id');
   const response = searchParams.get('re');
 
-  console.log({ id, response })
-
   const idAsNumber = id && id.trim() !== '' ? Number(id) : 1;
 
   const nextId = idAsNumber + 1
