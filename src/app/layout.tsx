@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Evveland Weekly Contest',
     description: 'A weekly contest by Evveland',
-    images: [`${config.hostUrl}/images/og.jpeg`],
+    images: [`${config.hostUrl}/images/og.png`],
   },
   other: {
     'fc:frame': 'vNext',
-    'fc:frame:image': `${config.hostUrl}/images/og.jpeg`,
-    'fc:frame:post_url': `${config.hostUrl}/api/questions?id=1`,
+    'fc:frame:image': `${config.hostUrl}/images/og.png`,
+    'fc:frame:post_url': `${config.hostUrl}/api/questions?id=0`,
     'fc:frame:button:1': 'Start Quiz!',
   },
 }
