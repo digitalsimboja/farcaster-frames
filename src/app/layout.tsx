@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   },
   other: {
     'fc:frame': 'vNext',
-    'fc:frame:image': `${config.hostUrl}/images/og.png`,
+    'fc:frame:image': `${config.hostUrl}/images/og.jpeg
+    `,
     'fc:frame:post_url': `${config.hostUrl}/api/questions?id=0`,
     'fc:frame:button:1': 'Start Quiz!',
   },
