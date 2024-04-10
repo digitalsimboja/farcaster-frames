@@ -1,3 +1,3 @@
 export const config = {
-    hostUrl: "http://localhost:3000"
+    hostUrl: "https://farcaster-frames-sigma.vercel.app"
 }
