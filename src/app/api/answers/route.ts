@@ -22,8 +22,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         </head></html>`);
     }
 
-    const isError = idAsNumber > 0 && response !== correctAnswer.answer;
-    if (isError) {
+    const isWrong = idAsNumber > 0 && response !== correctAnswer.answer;
+    if (isWrong) {
         const repeatId = idAsNumber - 1;
         return new NextResponse(`<!DOCTYPE html><html><head>
         <title>Error</title>
