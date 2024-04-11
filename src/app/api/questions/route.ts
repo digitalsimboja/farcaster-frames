@@ -8,7 +8,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const nextId = idAsNumber + 1;
 
-  const isLastQuestion = nextId === 20;
+  const isLastQuestion = idAsNumber === 20;
 
   const htmlContent = isLastQuestion
     ? `<!DOCTYPE html><html><head>
