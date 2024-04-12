@@ -7,17 +7,21 @@ import { savedUserData } from '@/utils/connectToDatabase';
 import { NextRequest, NextResponse } from 'next/server';
 
 export interface UserData {
-  userId: string;
-  userAddress: string;
+  fid: string;
+  username: string;
+  custody_address: string;
   startTime: string;
   completionTime: string;
+  quizHash: string;
 }
 
-let userStartTimes: UserData = {
-  userId: "",
-  userAddress: "",
+let userData: UserData = {
+  fid: "",
+  username: "",
+  custody_address: "",
   startTime: "",
-  completionTime: ""
+  completionTime: "",
+  quizHash: config.warpcast.castHash || "",
 }
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
@@ -28,43 +32,36 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const nextId = idAsNumber + 1;
 
   const data = await req.json();
-  
+
   const messageBytes = data.trustedData.messageBytes;
   const action = await Warpcast.validateMessage(messageBytes);
 
-  console.log({ action })
-
   const userAddress = action.interactor.custody_address;
 
-  if (!userStartTimes.userAddress) {
-    userStartTimes.userId = action.interactor.fid as unknown as string;
-    userStartTimes.userAddress = userAddress;
-    userStartTimes.startTime = new Date().toISOString();
+  if (!userData.custody_address) {
+    userData.fid = action.interactor.fid as unknown as string;
+    userData.username = action.interactor.username;
+    userData.custody_address = userAddress;
+    userData.startTime = new Date().toISOString();
 
   }
   const isLastQuestion = idAsNumber === 20;
 
+  if (isLastQuestion) {
+    const stopTime = new Date().toISOString();
+    const completionTimeMs = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
+    userData.completionTime = completionTimeMs.toString();
+    try {
+      await savedUserData(userData)
+    } catch (error) {
+      return new NextResponse(computeHtml({
+        imagePath: `/images/og.jpeg`,
+        postType: "Start Quiz!",
+        content: "You have already taken this quiz"
+      }))
+    }
 
-
-  // if (isLastQuestion) {
-  //   const stopTime = new Date().toISOString();
-  //   const completionTimeMs = new Date(stopTime).getTime() - new Date(userStartTimes.startTime).getTime();
-  //   userStartTimes.completionTime = completionTimeMs.toString();
-  //   try {
-  //     await savedUserData(userStartTimes)
-  //   } catch (error) {
-  //     return new NextResponse(computeHtml({
-  //       imagePath: `/images/og.jpeg`,
-  //       postType: "Start Quiz!",
-  //       content: "You have already taken this test"
-  //     }))
-  //   }
-
-
-
-  // }
-
-
+  }
 
   const htmlContent = isLastQuestion
     ? `<!DOCTYPE html><html><head>
