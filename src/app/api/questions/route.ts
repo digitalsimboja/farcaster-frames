@@ -28,16 +28,23 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const nextId = idAsNumber + 1;
 
   const data = await req.json();
-  console.log({ data })
-  // const userAddress = data.mockFrameData.interactor.custody_address
 
-  // if (!userStartTimes.userAddress) {
-  //   userStartTimes.userId = data.untrustedData.fid;
-  //   userStartTimes.userAddress = userAddress;
-  //   userStartTimes.startTime = new Date().toISOString();
+  const { trustedData } = data.trustedData;
 
-  // }
+  const action = await Warpcast.validateMessage(trustedData.messageBytes);
+
+
+  const userAddress = action.interactor.custody_address;
+
+  if (!userStartTimes.userAddress) {
+    userStartTimes.userId = action.interactor.fid as unknown as string;
+    userStartTimes.userAddress = userAddress;
+    userStartTimes.startTime = new Date().toISOString();
+
+  }
   const isLastQuestion = idAsNumber === 20;
+
+  console.log({ userStartTimes })
 
   // if (isLastQuestion) {
   //   const stopTime = new Date().toISOString();
