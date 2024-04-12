@@ -35,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     userStartTimes.startTime = new Date().toISOString();
 
   }
-  const isLastQuestion = idAsNumber === 2;
+  const isLastQuestion = idAsNumber === 20;
 
   if (isLastQuestion) {
     const stopTime = new Date().toISOString();
