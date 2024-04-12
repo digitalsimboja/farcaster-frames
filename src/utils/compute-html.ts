@@ -17,12 +17,12 @@ export const computeHtml = ({
         <meta property="og:title" content="WarpHeroes Frame" />
         <meta
           property="og:image"
-          content="https://${config.hostUrl}${imagePath}"
+          content="${config.hostUrl}${imagePath}"
         />
         <meta property="fc:frame" content="vNext" />
         <meta
           property="fc:frame:image"
-          content="https://${config.hostUrl}${imagePath}"
+          content="${config.hostUrl}${imagePath}"
         />
         <meta
           property="fc:frame:post_url"

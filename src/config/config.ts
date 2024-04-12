@@ -1,5 +1,6 @@
 export const config = {
     hostUrl: process.env.NEXT_PUBLIC_SITE_URL,
+    MONGODB_URI: process.env.NEXT_PUBLIC_MONGODB_URI,
     neynar: {
         apiKey: process.env.NEYNAR_API_KEY
     },
