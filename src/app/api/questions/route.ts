@@ -28,11 +28,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const nextId = idAsNumber + 1;
 
   const data = await req.json();
+  
+  const messageBytes = data.trustedData.messageBytes;
+  const action = await Warpcast.validateMessage(messageBytes);
 
-  const { trustedData } = data.trustedData;
-
-  const action = await Warpcast.validateMessage(trustedData.messageBytes);
-
+  console.log({ action })
 
   const userAddress = action.interactor.custody_address;
 
@@ -44,7 +44,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   }
   const isLastQuestion = idAsNumber === 20;
 
-  console.log({ userStartTimes })
+
 
   // if (isLastQuestion) {
   //   const stopTime = new Date().toISOString();
