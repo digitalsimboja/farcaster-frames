@@ -2,9 +2,10 @@
 import { Warpcast } from '@/Warpcast/warpcast';
 import { config } from '@/config/config';
 import { computeHtml } from '@/utils/compute-html';
-import { getAllUserData, getUserDataByAddress, savedUserData } from '@/utils/connectToDatabase';
-import { requestBodyWarpcastSchema } from '@/utils/requestSchema';
+import { savedUserData } from '@/utils/connectToDatabase';
+
 import { NextRequest, NextResponse } from 'next/server';
+
 export interface UserData {
   userId: string;
   userAddress: string;
@@ -27,33 +28,34 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const nextId = idAsNumber + 1;
 
   const data = await req.json();
-  const userAddress = data.mockFrameData.interactor.custody_address
+  console.log({ data })
+  // const userAddress = data.mockFrameData.interactor.custody_address
 
-  if (!userStartTimes.userAddress) {
-    userStartTimes.userId = data.untrustedData.fid;
-    userStartTimes.userAddress = userAddress;
-    userStartTimes.startTime = new Date().toISOString();
+  // if (!userStartTimes.userAddress) {
+  //   userStartTimes.userId = data.untrustedData.fid;
+  //   userStartTimes.userAddress = userAddress;
+  //   userStartTimes.startTime = new Date().toISOString();
 
-  }
+  // }
   const isLastQuestion = idAsNumber === 20;
 
-  if (isLastQuestion) {
-    const stopTime = new Date().toISOString();
-    const completionTimeMs = new Date(stopTime).getTime() - new Date(userStartTimes.startTime).getTime();
-    userStartTimes.completionTime = completionTimeMs.toString();
-   try {
-    await savedUserData(userStartTimes)
-   } catch(error) {
-    return new NextResponse(computeHtml({
-      imagePath: `/images/og.jpeg`,
-      postType: "Start Quiz!",
-      content: "You have already taken this test"
-    }))
-   }
-   
+  // if (isLastQuestion) {
+  //   const stopTime = new Date().toISOString();
+  //   const completionTimeMs = new Date(stopTime).getTime() - new Date(userStartTimes.startTime).getTime();
+  //   userStartTimes.completionTime = completionTimeMs.toString();
+  //   try {
+  //     await savedUserData(userStartTimes)
+  //   } catch (error) {
+  //     return new NextResponse(computeHtml({
+  //       imagePath: `/images/og.jpeg`,
+  //       postType: "Start Quiz!",
+  //       content: "You have already taken this test"
+  //     }))
+  //   }
 
 
-  }
+
+  // }
 
 
 
@@ -94,6 +96,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
+
   return getResponse(req);
 }
 
