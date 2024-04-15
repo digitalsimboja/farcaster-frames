@@ -1,25 +1,28 @@
 import { UserData } from '@/app/api/questions/route';
 import { config } from '@/config/config';
-import { MongoClient } from 'mongodb';
+import { Db, MongoClient } from 'mongodb';
 
 const uri = config.MONGODB_URI || '';
+let db: Db | null = null
 
-export async function connectToDatabase() {
-  const client = new MongoClient(uri);
-
-  try {
-    await client.connect();
-    console.log('Connected to MongoDB Atlas');
-    return client.db();
-  } catch (error) {
-    console.error('Error connecting to MongoDB Atlas:', error);
-    throw error;
+async function getDb(): Promise<Db> {
+  if (!db) {
+    const client = new MongoClient(uri);
+    try {
+      await client.connect();
+      console.log('Connected to MongoDB Atlas');
+      db = client.db();
+    } catch (error) {
+      console.error('Error connecting to MongoDb Atlas:', error)
+      throw error;
+    }
   }
+  return db;
 }
 
-export async function savedUserData(userData: UserData) {
-  const client = new MongoClient(uri);
-  const db = await connectToDatabase()
+
+export async function saveUserData(userData: UserData) {
+  const db = await getDb()
   const userDataCollection = db.collection('userData')
   try {
     await userDataCollection.insertOne(userData)
@@ -27,46 +30,57 @@ export async function savedUserData(userData: UserData) {
   } catch (error) {
     console.error('Error saving user data:', error);
     throw error;
-  } finally {
-    await client.close()
   }
-
 }
 
 export async function getUserDataByAddress(address: string) {
-  const client = new MongoClient(uri);
-  const db = await connectToDatabase()
-  const userDataCollection = db.collection<UserData>('UserData');
- 
   try {
-    const userData = await userDataCollection.findOne({ userAddress: address });
+    const userDataList = await getAllUserData()
+    const user = userDataList.find(user => user.custody_address === address);
 
-    if (!userData) {
+    if (!user) {
       throw Error(`No user found with address ${address}`);
     }
 
-    return userData;
+    return user
 
   } catch (error) {
-    console.error('Error saving user data:', error);
+    console.error('Error retrieving user data by address:', error);
     throw error;
-  } finally {
-    await client.close()
   }
 
 }
 
 export async function getAllUserData(): Promise<UserData[]> {
+  const client = new MongoClient(uri);
+
   try {
-    const db = await connectToDatabase(); 
-    const userDataCollection = db.collection<UserData>('UserData'); 
-
-    const userDataList = await userDataCollection.find({}).toArray(); 
-
-
+    const db = await getDb();
+    const userDataCollection = db.collection<UserData>('userData');
+    const userDataList = await userDataCollection.find({}).toArray();
     return userDataList;
   } catch (error) {
     console.error('Error retrieving all user data:', error);
+    throw error;
+  } finally {
+    await client.close();
+  }
+}
+
+export async function deleteUserData(address: string) {
+  try {
+    const db = await getDb();
+    const userDataCollection = db.collection<UserData>('userData');
+
+    const deleteResult = await userDataCollection.deleteOne({ custody_address: address });
+
+    if (deleteResult.deletedCount === 0) {
+      throw new Error(`No user found with address ${address}`);
+    }
+
+    console.log('User data deleted successfully');
+  } catch (error) {
+    console.error('Error deleting user data:', error);
     throw error;
   }
 }

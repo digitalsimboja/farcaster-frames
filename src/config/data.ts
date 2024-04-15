@@ -1,7 +1,7 @@
 export const answers = [
     {
         id: 1,
-        answer: "A"
+        answer: "B"
     },
     {
         id: 2,

@@ -2,7 +2,7 @@
 import { Warpcast } from '@/Warpcast/warpcast';
 import { config } from '@/config/config';
 import { computeHtml } from '@/utils/compute-html';
-import { savedUserData } from '@/utils/connectToDatabase';
+import { saveUserData } from '@/utils/connectToDatabase';
 
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -52,7 +52,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const completionTimeMs = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
     userData.completionTime = completionTimeMs.toString();
     try {
-      await savedUserData(userData)
+      await saveUserData(userData)
     } catch (error) {
       return new NextResponse(computeHtml({
         imagePath: `/images/og.jpeg`,
