@@ -11,6 +11,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     console.log({ userDataList })
     const imageUrl = await generateCoverURL(userDataList)
 
+    console.log({ imageUrl })
+
     return new NextResponse(computeHtml({
         imagePath: imageUrl,
         postType: "leaderboard",
