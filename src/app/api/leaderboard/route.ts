@@ -12,7 +12,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     return new NextResponse(computeHtml({
         imagePath: imageUrl,
-        postType: "Leaderboard",
+        postType: "leaderboard",
         content: "Top 20 Users"
     }))
 
