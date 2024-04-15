@@ -8,11 +8,9 @@ import { generateCoverURL } from '@/utils/cloudinary';
 async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     const userDataList: UserData[] = await getAllUserData();
-    console.log({ userDataList })
+   
     const imageUrl = await generateCoverURL(userDataList)
-
-    console.log({ imageUrl })
-
+    
     return new NextResponse(computeHtml({
         imagePath: imageUrl,
         postType: "leaderboard",

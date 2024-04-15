@@ -30,10 +30,12 @@ const getTitleTransformations = (userDataList: UserData[]) => {
 
 const generateCoverURL = async (userDataList: UserData[]) => {
     const titleTransformations = getTitleTransformations(userDataList);
-    const url = cloudinary.url('compressed/warphero/warphero', {
+    console.log({ titleTransformations })
+    console.log({ cloudinary })
+    const publicId = 'v1713197197/compressed/warphero/warphero'
+    const url = cloudinary.url(publicId, {
         transformation: [...titleTransformations]
     });
-
     console.log({ url })
     return url;
 }
