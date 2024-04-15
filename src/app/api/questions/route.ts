@@ -53,18 +53,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     userData.completionTime = completionTimeMs.toString();
     try {
       await saveUserData(userData)
-    } catch (error) {
-      return new NextResponse(computeHtml({
-        imagePath: `/images/og.jpeg`,
-        postType: "Start Quiz!",
-        content: "You have already taken this quiz"
-      }))
-    }
-
-  }
-
-  const htmlContent = isLastQuestion
-    ? `<!DOCTYPE html><html><head>
+      const htmlContent = `<!DOCTYPE html><html><head>
       <title>This is Last Question</title>
       <meta property="og:image" content="${config.hostUrl}/images/result.png" />
       <meta property="fc:frame" content="vNext" />
@@ -76,7 +65,19 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       <meta property="fc:frame:button:2:action" content="post" />
       <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress} />
       </head></html>`
-    : `<!DOCTYPE html><html><head>
+      
+      return new NextResponse(htmlContent)
+    } catch (error) {
+      return new NextResponse(computeHtml({
+        imagePath: `/images/og.jpeg`,
+        postType: "Start Quiz!",
+        content: "You have already taken this quiz"
+      }))
+    }
+
+  }
+
+  const htmlContent = `<!DOCTYPE html><html><head>
       <title>This is frame ${nextId}</title>
       <meta property="og:image" content="${config.hostUrl}/images/Question-${nextId}.png" />
       <meta property="fc:frame" content="vNext" />
