@@ -45,27 +45,34 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     userData.startTime = new Date().toISOString();
 
   }
-  const isLastQuestion = idAsNumber === 20;
+  const isLastQuestion = idAsNumber === 2;
 
   if (isLastQuestion) {
     const stopTime = new Date().toISOString();
     const completionTimeMs = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
     userData.completionTime = completionTimeMs.toString();
-    await saveUserData(userData);
-    const htmlContent = `<!DOCTYPE html><html><head>
-      <title>Join Leaderboard</title>
-      <meta property="og:image" content="${config.hostUrl}/images/result.png" />
-      <meta property="fc:frame" content="vNext" />
-      <meta property="fc:frame:image" content="${config.hostUrl}/images/result.png" />
-      <meta property="fc:frame:button:1" content="Learn More!" />
-      <meta property="fc:frame:button:1:action" content="link" />
-      <meta property="fc:frame:button:1:target" content="https://evveland.com" />
-      <meta property="fc:frame:button:2" content="Join Leaderboard!" />
-      <meta property="fc:frame:button:2:action" content="post" />
-      <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress}&data=${userData}" />
-      </head></html>`
 
-    return new NextResponse(htmlContent)
+    const htmlContent = `<!DOCTYPE html><html><head>
+    <title>Join Leaderboard</title>
+    <meta property="og:image" content="${config.hostUrl}/images/result.png" />
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="${config.hostUrl}/images/result.png" />
+    <meta property="fc:frame:button:1" content="Learn More!" />
+    <meta property="fc:frame:button:1:action" content="link" />
+    <meta property="fc:frame:button:1:target" content="https://evveland.com" />
+    <meta property="fc:frame:button:2" content="Join Leaderboard!" />
+    <meta property="fc:frame:button:2:action" content="post" />
+    <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress}" />
+    </head></html>`
+
+    try {
+      await saveUserData(userData);
+      return new NextResponse(htmlContent)
+    } catch (error) {
+      return new NextResponse(htmlContent)
+    }
+
+
 
   } else {
     const htmlContent = `<!DOCTYPE html><html><head>
