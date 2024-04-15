@@ -2,7 +2,7 @@
 import { Warpcast } from '@/Warpcast/warpcast';
 import { config } from '@/config/config';
 import { computeHtml } from '@/utils/compute-html';
-import { saveUserData } from '@/utils/connectToDatabase';
+import { getUserDataByAddress, saveUserData } from '@/utils/connectToDatabase';
 
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -66,10 +66,26 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     </head></html>`
 
     try {
-      await saveUserData(userData);
-      return new NextResponse(htmlContent)
+      const userExists = await getUserDataByAddress(userAddress)
+      if (!userExists) {
+        await saveUserData(userData);
+        return new NextResponse(htmlContent)
+      } else {
+        return new NextResponse(computeHtml({
+          imagePath: "/images/error.png",
+          postType: "error",
+          content: "Error!"
+
+        }))
+      }
+
     } catch (error) {
-      return new NextResponse(htmlContent)
+      return new NextResponse(computeHtml({
+        imagePath: "/images/error.png",
+        postType: "error",
+        content: "Error!"
+
+      }))
     }
 
 
