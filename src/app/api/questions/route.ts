@@ -51,6 +51,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const stopTime = new Date().toISOString();
     const completionTimeMs = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
     userData.completionTime = completionTimeMs.toString();
+    await saveUserData(userData);
     const htmlContent = `<!DOCTYPE html><html><head>
       <title>Join Leaderboard</title>
       <meta property="og:image" content="${config.hostUrl}/images/result.png" />

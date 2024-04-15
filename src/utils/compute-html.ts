@@ -13,7 +13,7 @@ export const computeHtml = ({
   return `<!DOCTYPE html>
     <html>
       <head>
-        <title>${content}</title>
+        <title>${postType}</title>
         <meta property="og:title" content="WarpHeroes Frame" />
         <meta
           property="og:image"
@@ -28,7 +28,7 @@ export const computeHtml = ({
           property="fc:frame:post_url"
           content="https://${config.hostUrl}/api/mint?type=${postType}"
         />
-        <meta property="fc:frame:button:1" content="${content}" />
+        <meta property="fc:frame:button:1" content="${postType}" />
       </head>
       <body>
         <p>${content}</p>
