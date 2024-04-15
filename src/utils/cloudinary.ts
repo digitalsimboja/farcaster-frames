@@ -4,7 +4,7 @@ import { v2 as cloudinary } from "cloudinary"
 
 cloudinary.config(config.cloudinary)
 
-const getTitleTransformations = ( userDataList: UserData[]) => {
+const getTitleTransformations = (userDataList: UserData[]) => {
     // Extract the top 20 usernames from the userDataList
     const topUsernames = userDataList.slice(0, 20).map(user => user.username).join('\n');
 
@@ -29,10 +29,12 @@ const getTitleTransformations = ( userDataList: UserData[]) => {
 }
 
 const generateCoverURL = async (userDataList: UserData[]) => {
-    const titleTransformations = getTitleTransformations( userDataList);
+    const titleTransformations = getTitleTransformations(userDataList);
     const url = cloudinary.url('compressed/warphero/warphero', {
         transformation: [...titleTransformations]
     });
+
+    console.log({ url })
     return url;
 }
 

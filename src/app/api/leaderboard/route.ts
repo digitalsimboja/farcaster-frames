@@ -7,7 +7,8 @@ import { generateCoverURL } from '@/utils/cloudinary';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
 
-    const userDataList = await getAllUserData();
+    const userDataList: UserData[] = await getAllUserData();
+    console.log({ userDataList })
     const imageUrl = await generateCoverURL(userDataList)
 
     return new NextResponse(computeHtml({
