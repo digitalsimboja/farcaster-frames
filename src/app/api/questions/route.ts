@@ -74,7 +74,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       <meta property="fc:frame:button:1:target" content="https://evveland.com" />
       <meta property="fc:frame:button:2" content="Join Leaderboard!" />
       <meta property="fc:frame:button:2:action" content="post" />
-      <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?timestamp="" />
+      <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress} />
       </head></html>`
     : `<!DOCTYPE html><html><head>
       <title>This is frame ${nextId}</title>
