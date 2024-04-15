@@ -46,7 +46,7 @@ export async function getUserDataByAddress(address: string) {
 
   } catch (error) {
     console.error('Error retrieving user data by address:', error);
-    throw error;
+   
   }
 
 }
