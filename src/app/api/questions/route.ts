@@ -51,9 +51,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const stopTime = new Date().toISOString();
     const completionTimeMs = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
     userData.completionTime = completionTimeMs.toString();
-    try {
-      await saveUserData(userData)
-      const htmlContent = `<!DOCTYPE html><html><head>
+    const htmlContent = `<!DOCTYPE html><html><head>
       <title>This is Last Question</title>
       <meta property="og:image" content="${config.hostUrl}/images/result.png" />
       <meta property="fc:frame" content="vNext" />
@@ -63,17 +61,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       <meta property="fc:frame:button:1:target" content="https://evveland.com" />
       <meta property="fc:frame:button:2" content="Join Leaderboard!" />
       <meta property="fc:frame:button:2:action" content="post" />
-      <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress} />
+      <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress}&data=${userData} />
       </head></html>`
-      
-      return new NextResponse(htmlContent)
-    } catch (error) {
-      return new NextResponse(computeHtml({
-        imagePath: `/images/og.jpeg`,
-        postType: "Start Quiz!",
-        content: "You have already taken this quiz"
-      }))
-    }
+
+    return new NextResponse(htmlContent)
 
   }
 

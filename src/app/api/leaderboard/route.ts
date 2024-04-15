@@ -1,11 +1,9 @@
-import { getAllUserData } from '@/utils/connectToDatabase';
+import { getAllUserData, saveUserData } from '@/utils/connectToDatabase';
 import { NextRequest, NextResponse } from 'next/server';
 import { UserData } from '../questions/route';
+import { computeHtml } from '@/utils/compute-html';
 
-async function getResponse(req: NextRequest): Promise<NextResponse> {
-    const searchParams = req.nextUrl.searchParams;
-    const userAddress = searchParams.get('address');
-    console.log({ userAddress })
+async function getHtmlContent() {
 
     const userDataList = await getAllUserData()
     userDataList.sort((a: UserData, b: UserData) => {
@@ -22,6 +20,24 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     });
     htmlContent += '</ol>';
 
+    return htmlContent
+
+}
+
+async function getResponse(req: NextRequest): Promise<NextResponse> {
+    const searchParams = req.nextUrl.searchParams;
+    const userAddress = searchParams.get('address');
+    const userData: UserData = searchParams.get('userData') as unknown as UserData
+    if (userData) {
+        try {
+            await saveUserData(userData)
+        } catch (error) {
+            const htmlContent = await getHtmlContent()
+
+            return new NextResponse(htmlContent)
+        }
+    }
+    const htmlContent = await getHtmlContent()
 
     return new NextResponse(htmlContent)
 }
