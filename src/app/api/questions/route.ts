@@ -45,7 +45,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     userData.startTime = new Date().toISOString();
 
   }
-  const isLastQuestion = idAsNumber === 20;
+  const isLastQuestion = idAsNumber === 2;
 
   if (isLastQuestion) {
     const stopTime = new Date().toISOString();
@@ -87,8 +87,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
       }))
     }
-
-
 
   } else {
     const htmlContent = `<!DOCTYPE html><html><head>

@@ -1,43 +1,15 @@
 import { UserData } from "@/app/api/questions/route"
-import { config } from "@/config/config"
-import { v2 as cloudinary } from "cloudinary"
 
-cloudinary.config(config.cloudinary)
 
-const getTitleTransformations = (userDataList: UserData[]) => {
+const getTextTransformations = (userDataList: UserData[]) => {
     // Extract the top 20 usernames from the userDataList
     const topUsernames = userDataList.slice(0, 20).map(user => user.username).join('\n');
 
     // Construct overlay text with the title and the top 20 usernames
     const overlayText = `Top 20 Users:\n${topUsernames}`;;
 
-    return [{
-        overlay: {
-            font_family: 'Montserrat',
-            font_size: '40',
-            font_weight: '900',
-            text: overlayText,
-            text_align: 'center',
-            background: 'rgba(0, 0, 0, 0.8)'
-        },
-        width: 500,
-        color: '#ffffff',
-        y: '0',
-        x: '-210',
-        crop: 'fit'
-    }]
+    return overlayText
 }
 
-const generateCoverURL = async (userDataList: UserData[]) => {
-    const titleTransformations = getTitleTransformations(userDataList);
-    console.log({ titleTransformations })
-    console.log({ cloudinary })
-    const publicId = 'v1713197197/compressed/warphero/warphero'
-    const url = cloudinary.url(publicId, {
-        transformation: [...titleTransformations]
-    });
-    console.log({ url })
-    return url;
-}
 
-export { generateCoverURL }
+export { getTextTransformations }

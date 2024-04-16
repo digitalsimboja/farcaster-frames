@@ -29,7 +29,6 @@ export async function saveUserData(userData: UserData) {
     console.log('User data saved successfully');
   } catch (error) {
     console.error('Error saving user data:', error);
-    throw error;
   }
 }
 
@@ -53,7 +52,6 @@ export async function getUserDataByAddress(address: string) {
 
 export async function getAllUserData(): Promise<UserData[]> {
   const client = new MongoClient(uri);
-
   try {
     const db = await getDb();
     const userDataCollection = db.collection<UserData>('userData');
