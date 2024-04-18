@@ -1,4 +1,3 @@
-import satori from "satori";
 import { UserData } from "./questions/route";
 
 function generateJSX(userDataList: UserData[]): JSX.Element {
