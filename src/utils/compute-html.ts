@@ -10,30 +10,60 @@ export const computeHtml = ({
   postType,
   content,
 }: ComputeHtmlParameters) => {
-
-  return `<!DOCTYPE html>
+  if (postType === "leaderboard") {
+    return `<!DOCTYPE html>
   <html>
     <head>
       <title>${postType}</title>
       <meta property="og:title" content="WarpHeroes Frame" />
       <meta
         property="og:image"
-        content="${config.hostUrl}${imagePath}"
+        content="${imagePath}"
       />
       <meta property="fc:frame" content="vNext" />
       <meta
         property="fc:frame:image"
-        content="${config.hostUrl}${imagePath}"
+        content="${imagePath}"
       />
       <meta
         property="fc:frame:post_url"
         content="https://${config.hostUrl}/api/mint?type=${postType}"
       />
-      <meta property="fc:frame:button:1" content="${content}" />
+      <meta property="fc:frame:button:1" content="Mint NFT!" />
     </head>
     <body>
       <p>${content}</p>
     </body>
   </html>`;
+
+
+  } else {
+    return `<!DOCTYPE html>
+    <html>
+      <head>
+        <title>${postType}</title>
+        <meta property="og:title" content="WarpHeroes Frame" />
+        <meta
+          property="og:image"
+          content="${config.hostUrl}${imagePath}"
+        />
+        <meta property="fc:frame" content="vNext" />
+        <meta
+          property="fc:frame:image"
+          content="${config.hostUrl}${imagePath}"
+        />
+        <meta
+          property="fc:frame:post_url"
+          content="https://${config.hostUrl}/api/mint?type=${postType}"
+        />
+        <meta property="fc:frame:button:1" content="${content}" />
+      </head>
+      <body>
+        <p>${content}</p>
+      </body>
+    </html>`;
+
+  }
+
 
 };

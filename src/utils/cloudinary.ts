@@ -1,4 +1,15 @@
 import { UserData } from "@/app/api/questions/route";
+import { config } from "@/config/config";
+import cloudinary from "cloudinary";
+import sharp from "sharp";
+
+
+cloudinary.v2.config({
+    cloud_name: config.cloudinary.cloud_name,
+    api_key: config.cloudinary.api_key,
+    api_secret: config.cloudinary.api_secret
+})
+  
 
 interface Transformation {
     overlay: {
@@ -42,6 +53,24 @@ const getTextTransformations = (userDataList: UserData[], imageWidth: number): T
     }];
 }
 
+async function uploadImage(buf:Buffer): Promise<string> {
+    const cloudinaryResponse = await new Promise<cloudinary.UploadApiResponse>((resolve, reject) => {
+        const uploadStream = cloudinary.v2.uploader.upload_stream((error, result) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(result as cloudinary.UploadApiResponse);
+          }
+        });
+        sharp(buf).pipe(uploadStream);
+      });
+
+    // Get the Cloudinary URL for the uploaded image
+    const imagePath = cloudinaryResponse.secure_url;
+    return imagePath
+
+}
 
 
-export { getTextTransformations };
+
+export { getTextTransformations, uploadImage };

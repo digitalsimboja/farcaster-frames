@@ -5,19 +5,16 @@ import { getAllUserData } from '@/utils/connectToDatabase';
 import { UserData } from '../questions/route';
 import * as fs from 'fs';
 import { generateJSX } from '../common';
-import { config } from '@/config/config';
 import { computeHtml } from '@/utils/compute-html';
-import { promises as fsPromises } from 'fs';
 import { join } from 'path';
+import { uploadImage } from '@/utils/cloudinary';
 
 const fontPath = join(process.cwd(), 'Roboto-Regular.ttf');
 const fontData = fs.readFileSync(fontPath);
 
+
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     try {
-         // Ensure that the images directory exists
-         const imagesDir = join(process.cwd(), 'images');
-         await fsPromises.mkdir(imagesDir, { recursive: true });
 
         const userDataList: UserData[] = (await getAllUserData()).slice(0, 10);
         const jsx = generateJSX(userDataList);
@@ -35,12 +32,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         });
 
         const pngBuffer = await sharp(Buffer.from(svg)).toFormat('png').toBuffer();
-   
-         // Write the image to the images directory
-        const imagePath = join(imagesDir, 'leaderboard.png');
-        await fsPromises.writeFile(imagePath, pngBuffer);
 
-       console.log("File successfully written to disk")
+       const imagePath = await uploadImage(pngBuffer)
+
         return new NextResponse(computeHtml({
             imagePath: imagePath,
             postType: "leaderboard",
