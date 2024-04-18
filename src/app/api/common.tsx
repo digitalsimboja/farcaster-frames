@@ -38,7 +38,7 @@ function generateJSX(userDataList: UserData[]): JSX.Element {
             }}
           >{`${index + 1}. ${userData.username}  - ${
             userData.completionTime
-          }`}</div>
+          }ms`}</div>
         ))}
       </div>
     </div>
