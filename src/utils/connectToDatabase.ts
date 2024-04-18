@@ -38,7 +38,7 @@ export async function getUserDataByAddress(address: string) {
     const user = userDataList.find(user => user.custody_address === address);
 
     if (!user) {
-      throw Error(`No user found with address ${address}`);
+      console.error(`No user found with address ${address}`);
     }
 
     return user

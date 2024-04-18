@@ -35,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const messageBytes = data.trustedData.messageBytes;
   const action = await Warpcast.validateMessage(messageBytes);
-
+  //const action = data.mockFrameData
   const userAddress = action.interactor.custody_address;
 
   if (!userData.custody_address) {
@@ -65,7 +65,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress}" />
     </head></html>`
 
-    try {
       const userExists = await getUserDataByAddress(userAddress)
       if (!userExists) {
         await saveUserData(userData);
@@ -73,20 +72,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       } else {
         return new NextResponse(computeHtml({
           imagePath: "/images/error.png",
-          postType: "error",
-          content: "Error!"
+          postType: "mint",
+          content: "Qiuz Already taken! Mint NFT"
 
         }))
       }
-
-    } catch (error) {
-      return new NextResponse(computeHtml({
-        imagePath: "/images/error.png",
-        postType: "error",
-        content: "Error!"
-
-      }))
-    }
 
   } else {
     const htmlContent = `<!DOCTYPE html><html><head>

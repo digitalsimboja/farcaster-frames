@@ -1,34 +1,47 @@
-import { getAllUserData } from '@/utils/connectToDatabase';
 import { NextRequest, NextResponse } from 'next/server';
+import satori from 'satori';
+import sharp from 'sharp';
+import { getAllUserData } from '@/utils/connectToDatabase';
 import { UserData } from '../questions/route';
-import { computeHtml } from '@/utils/compute-html';
-import { getCldOgImageUrl } from 'next-cloudinary';
+import { join } from 'path';
+import * as fs from 'fs';
+import { generateJSX } from '../common';
 import { config } from '@/config/config';
-import { getTextTransformations } from '@/utils/cloudinary';
+import { computeHtml } from '@/utils/compute-html';
 
-
+const fontPath = join(process.cwd(), 'Roboto-Regular.ttf');
+const fontData = fs.readFileSync(fontPath);
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-    const searchParams = req.nextUrl.searchParams;
+    try {
+        const userDataList: UserData[] = (await getAllUserData()).slice(0, 10);
+        const jsx = generateJSX(userDataList);
 
-    const userAddress: any = searchParams.get("address")
-    console.log({ userAddress })
+        // Generate SVG using satori
+        const svg = await satori(jsx, {
+            width: 600,
+            height: 400,
+            fonts: [{
+                data: fontData,
+                name: 'Roboto',
+                style: 'normal',
+                weight: 400
+            }]
+        });
 
-    const userDataList: UserData[] = await getAllUserData();
-    const transformations = getTextTransformations(userDataList);
-
-    const imageUrl = getCldOgImageUrl({
-        src: config.cloudinary.publicId as string,
-        text: transformations
-      
-    })
-
-    return new NextResponse(computeHtml({
-        imagePath: imageUrl,
-        postType: "leaderboard",
-        content: "Top 20 Users"
-    }))
-
+        const pngBuffer = await sharp(Buffer.from(svg)).toFormat('png').toBuffer();
+   
+        fs.writeFileSync('./public/images/leaderboard.png', pngBuffer);
+       
+        return new NextResponse(computeHtml({
+            imagePath: "/images/leaderboard.png",
+            postType: "leaderboard",
+            content: "Leaderboard"
+        }))
+    } catch (error) {
+        console.error(error);
+        return new NextResponse('Error generating image', { status: 500 });
+    }
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
