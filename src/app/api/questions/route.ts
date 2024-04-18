@@ -34,8 +34,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const data = await req.json();
 
   const messageBytes = data.trustedData.messageBytes;
-  //const action = await Warpcast.validateMessage(messageBytes);
-  const action = data.mockFrameData
+  const action = await Warpcast.validateMessage(messageBytes);
+  //const action = data.mockFrameData
   const userAddress = action.interactor.custody_address;
 
   if (!userData.custody_address) {
