@@ -31,8 +31,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
         const pngBuffer = await sharp(Buffer.from(svg)).toFormat('png').toBuffer();
    
-        fs.writeFileSync('./public/images/leaderboard.png', pngBuffer);
-       
+        fs.writeFileSync('./images/leaderboard.png', pngBuffer);
+
+       console.log("File successfully written to disk")
         return new NextResponse(computeHtml({
             imagePath: "/images/leaderboard.png",
             postType: "leaderboard",
