@@ -12,6 +12,6 @@ export const config = {
         cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
         api_key: process.env.CLOUDINARY_API_KEY,
         api_secret: process.env.CLOUDINARY_API_SECRET,
-        publicId: process.env.NEXT_CLOUDINARY_PUBLIC_ID
+        publicId: process.env.CLOUDINARY_PUBLIC_ID
     }
 }
