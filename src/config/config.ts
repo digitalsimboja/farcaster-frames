@@ -7,6 +7,18 @@ export const config = {
     warpcast: {
         castHash: process.env.NEXT_PUBLIC_WARPCAST_CAST_HASH,
     },
+    protocol: {
+        ethereum: {
+            name: "ethereum",
+            castHash: process.env.NEXT_PUBLIC_ETHEREUM_CAST_HASH,
+            active: process.env.NEXT_PUBLIC_ETHEREUM_IS_ACTIVE || true
+        },
+        polygon: {
+            name: "polygon",
+            castHash: process.env.NEXT_PUBLIC_MATIC,
+            active: process.env.NEXT_PUBLIC_MATIC_IS_ACTIVE || false
+        }
+    },
     contractAddress: process.env.NEXT_PUBLIC_SMART_CONTRACT,
     cloudinary: {
         cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -18,6 +30,6 @@ export const config = {
         address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
         alchemy_url: process.env.ALCHEMY_NODE_URL,
         alchemy_api_key: process.env.ALCHEMY_API_KEY
-        
+
     }
 }

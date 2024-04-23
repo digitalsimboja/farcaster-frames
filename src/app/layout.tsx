@@ -6,6 +6,7 @@ import { config } from "@/config/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export const metadata: Metadata = {
   title: "Evveland Weekly Contest",
   description: "A weekly contest by Evveland",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   },
   other: {
     "fc:frame": "vNext",
-    "fc:frame:image": `${config.hostUrl}/images/og.jpeg
+    "fc:frame:image": `${config.hostUrl}/images/ethereum/og.jpeg
     `,
     "fc:frame:button:1": "Start Quiz!",
     "fc:frame:post_url": `${config.hostUrl}/api/questions?id=0`,
