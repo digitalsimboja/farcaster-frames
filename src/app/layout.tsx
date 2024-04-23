@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Evveland Weekly Contest",
     description: "A weekly contest by Evveland",
-    images: [`${config.hostUrl}/images/og.png`],
+    images: [`${config.hostUrl}/images/ethereum/og.png`],
   },
   other: {
     "fc:frame": "vNext",

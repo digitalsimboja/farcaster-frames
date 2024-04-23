@@ -46,7 +46,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const castHash = data.untrustedData.castId.hash
 
   const protocol = getCastHashProtocol(castHash)
-  console.log({ castHash, protocol })
+  
 
   if (!userData.custody_address) {
     userData.fid = action.interactor.fid as unknown as string;
@@ -56,6 +56,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     userData.protocol = protocol;
 
   }
+  console.log({ castHash, protocol, userData })
+  
   const isLastQuestion = idAsNumber === 2;
 
   if (isLastQuestion) {
@@ -99,7 +101,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:button:1" content="A" />
     <meta property="fc:frame:button:2" content="B" />
     <meta property="fc:frame:button:3" content="C" />
-    <meta property="fc:frame:btton:4" content="D" />
+    <meta property="fc:frame:button:4" content="D" />
     <meta property="fc:frame:button:1:action" content="post" />
     <meta property="fc:frame:button:1:target" content="${config.hostUrl}/api/answers?id=${nextId}&re=A&protocol=${protocol}" />
     <meta property="fc:frame:button:2:action" content="post" />
@@ -112,6 +114,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     return new NextResponse(htmlContent)
   }
+
+  
 
 
 }

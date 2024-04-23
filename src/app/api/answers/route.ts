@@ -7,6 +7,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const id = searchParams.get('id');
     const response = searchParams.get('re');
     const protocol = searchParams.get('protocol')
+   
     const idAsNumber = id && id.trim() !== '' ? Number(id) : 1;
 
     const correctAnswer = answers.find((item) => item.id === idAsNumber);
@@ -50,6 +51,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
     return getResponse(req);
-  }
-  
-  export const dynamic = 'force-dynamic';
+}
+
+export const dynamic = 'force-dynamic';
