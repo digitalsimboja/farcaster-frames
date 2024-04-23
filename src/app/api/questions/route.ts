@@ -43,8 +43,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   //const action = data.mockFrameData
   const userAddress = action.interactor.custody_address;
-  const castHash = data.trustedData.castInfo.castHash;
-  //const castHash = data.untrustedData.castId.hash
+ 
+  const castHash = data.untrustedData.castId.hash
 
   const protocol = getCastHashProtocol(castHash)
   
