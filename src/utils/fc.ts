@@ -22,3 +22,7 @@ const ownedResponseSchema = z.object({
         })
     )
 })
+
+export const balanceOfContract = async () => {
+   
+}

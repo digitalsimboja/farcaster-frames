@@ -13,5 +13,11 @@ export const config = {
         api_key: process.env.CLOUDINARY_API_KEY,
         api_secret: process.env.CLOUDINARY_API_SECRET,
         publicId: process.env.CLOUDINARY_PUBLIC_ID
+    },
+    contract: {
+        address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+        alchemy_url: process.env.ALCHEMY_NODE_URL,
+        alchemy_api_key: process.env.ALCHEMY_API_KEY
+        
     }
 }
