@@ -36,11 +36,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const nextId = idAsNumber + 1;
 
   const data = await req.json();
-
+  console.log(JSON.stringify(data, null, 2))
 
   const messageBytes = data.trustedData.messageBytes;
   const action = await Warpcast.validateMessage(messageBytes);
-  console.log(JSON.stringify(action, null, 2))
+
   //const action = data.mockFrameData
   const userAddress = action.interactor.custody_address;
   const castHash = data.trustedData.castInfo.castHash;
