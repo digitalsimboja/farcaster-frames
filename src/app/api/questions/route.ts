@@ -36,19 +36,19 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const nextId = idAsNumber + 1;
 
   const data = await req.json();
- 
 
   const messageBytes = data.trustedData.messageBytes;
-  const action = await Warpcast.validateMessage(messageBytes);
+  //const action = await Warpcast.validateMessage(messageBytes);
 
-  //const action = data.mockFrameData
+  const action = data.mockFrameData
   const userAddress = action.interactor.custody_address;
- 
+
   const castHash = data.untrustedData.castId.hash
-  console.log(JSON.stringify(action, null, 2))
 
   const protocol = getCastHashProtocol(castHash)
-  
+
+  console.log({ castHash })
+
 
   if (!userData.custody_address) {
     userData.fid = action.interactor.fid as unknown as string;
@@ -58,7 +58,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     userData.protocol = protocol;
 
   }
- 
+
 
   const isLastQuestion = idAsNumber === 2;
 
@@ -117,7 +117,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(htmlContent)
   }
 
-  
+
 
 
 }
