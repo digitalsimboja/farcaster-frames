@@ -43,7 +43,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   //const action = data.mockFrameData
   const userAddress = action.interactor.custody_address;
-  console.log(data.untrustedData.castId.hash)
+  console.log(JSON.stringify(action, null, 2))
   //const castHash = data.untrustedData.castId.hash
  
 
