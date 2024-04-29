@@ -1,0 +1,16 @@
+{
+    "name": "Ethereum WarpHero Level 1",
+    "description": "WarpHero NFT beginner level 1 within the Ethereum Protocol",
+    "image": "ipfs://Qme1yhPbT8QomG2Qc88K2ebbpbkeQKv59VZpL4MVwRXq7R/1.jpeg",
+    "attributes": [
+      {
+        "trait_type": "Protocol",
+        "value": "Ethereum"
+      },
+      {
+        "trait_type": "Level",
+        "value": 1
+      }
+    ]
+  }
+  
