@@ -1,32 +1,27 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { FaTimes } from "react-icons/fa";
-import { IoChevronDownSharp } from "react-icons/io5";
 import LogoLink from "./LogoLink";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsDrawerOpen(!isDrawerOpen);
   };
 
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
+    setIsDrawerOpen(false);
   };
 
   return (
-    <nav className="flex  justify-around  items-center md:px-10  px-3 cursor-pointer  ease-in-out transition-all relative">
-     <LogoLink />
-
-    <DesktopNav />
+    <nav className="flex sm:text-sm text-md justify-between items-center  cursor-pointer  ease-in-out transition-all relative">
+      <LogoLink />
+      <DesktopNav />
 
       {/* Mobile Menu Button */}
-      <div className="md:hidden cursor-pointer" onClick={toggleMobileMenu}>
+      <div className="sm:hidden cursor-pointer" onClick={toggleMobileMenu}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
@@ -43,9 +38,7 @@ const Navbar = () => {
         </svg>
       </div>
 
-      {isMobileMenuOpen && (
-        <MobileNav onClose={closeMobileMenu} />
-      )}
+      {isDrawerOpen && <MobileNav onClose={closeMobileMenu} />}
     </nav>
   );
 };
