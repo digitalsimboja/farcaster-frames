@@ -1,9 +1,9 @@
 
 import { Warpcast } from '@/Warpcast/warpcast';
 import { config } from '@/config/config';
+import { getUserDataByAddress, saveUserData } from '@/database/user';
 import { getCastHashProtocol } from '@/utils/common';
 import { computeHtml } from '@/utils/compute-html';
-import { getUserDataByAddress, saveUserData } from '@/utils/connectToDatabase';
 
 import { NextRequest, NextResponse } from 'next/server';
 
