@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <div className="px-8 md:px-48 pt-8">
+    <main className="min-h-screen">
+      <div className="px-4 md:px-24 pt-8">
         <Navbar />
         <Hero />
         <Leaderboard />
