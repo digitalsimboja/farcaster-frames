@@ -1,21 +1,12 @@
 
 import { Warpcast } from '@/Warpcast/warpcast';
 import { config } from '@/config/config';
-import { getUserDataByAddress, saveUserData } from '@/database/user';
+import { UserData, getUserDataByAddress, saveUserData } from '@/database/user';
 import { getCastHashProtocol } from '@/utils/common';
 import { computeHtml } from '@/utils/compute-html';
 
 import { NextRequest, NextResponse } from 'next/server';
 
-export interface UserData {
-  fid: string;
-  username: string;
-  custody_address: string;
-  startTime: string;
-  completionTime: string;
-  protocol: string;
-  quizHash: string;
-}
 
 let userData: UserData = {
   fid: "",
@@ -48,7 +39,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const protocol = getCastHashProtocol(castHash)
 
   console.log({ castHash })
-
 
   if (!userData.custody_address) {
     userData.fid = action.interactor.fid as unknown as string;
@@ -128,3 +118,4 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 }
 
 export const dynamic = 'force-dynamic';
+

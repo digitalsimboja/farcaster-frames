@@ -1,9 +1,18 @@
-import { UserData } from "@/app/api/questions/route";
 import { getDb } from "./connect";
 import { MongoClient } from "mongodb";
 import { config } from "@/config/config";
 
 const uri = config.MONGODB_URI || '';
+
+export interface UserData {
+  fid: string;
+  username: string;
+  custody_address: string;
+  startTime: string;
+  completionTime: string;
+  protocol: string;
+  quizHash: string;
+}
 
 export async function saveUserData(userData: UserData) {
     const db = await getDb()

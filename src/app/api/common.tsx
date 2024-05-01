@@ -1,4 +1,5 @@
-import { UserData } from "./questions/route";
+import { UserData } from "@/database/user";
+
 
 function generateJSX(userDataList: UserData[]): JSX.Element {
   const jsx = (

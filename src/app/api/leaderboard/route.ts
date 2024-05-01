@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import satori from 'satori';
 import sharp from 'sharp';
-import { getAllUserData } from '@/utils/connectToDatabase';
-import { UserData } from '../questions/route';
+
 import * as fs from 'fs';
 import { generateJSX } from '../common';
 import { computeHtml } from '@/utils/compute-html';
 import { join } from 'path';
 import { uploadImage } from '@/utils/cloudinary';
+import { UserData, getAllUserData } from '@/database/user';
 
 const fontPath = join(process.cwd(), 'Roboto-Regular.ttf');
 const fontData = fs.readFileSync(fontPath);
