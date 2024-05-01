@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-24">
           <div className="flex col-span-1 p-4 bg-gradient-to-tr from-gray-200 via-purple-50 to-pink-200 h-full rounded-xl">
             <div className="flex flex-col gap-4">
-              <h1 className="font-bold tracking-wide text-sm md:text-lg lg:text-xl">
+              <h1 className="font-bold tracking-wide text-2xl md:text-4xl lg:text-xl">
                 Evveland WarpHeroes
               </h1>
               <p className="text-sm tracking-wider md:text-base">
@@ -25,8 +25,13 @@ const Hero: React.FC = () => {
                 alike—to demonstrate their expertise and connect with protocols
                 efficiently via gamified challenges on Warpcast.
               </p>
-              <p className="text-sm md:text-base"> <span className="bg-blue-500 p-2 rounded text-white">Learn More  </span> | <span className="bg-blue-500 p-2 rounded text-white">Earn More  </span>  | Meet us on <span className="underline"><a href="#">Warpcast</a></span>.</p>
-              
+              <p className="text-sm md:text-base ">
+                Learn More | Earn More | Meet us on 
+                <span className="underline">
+                  <a href="#"> Warpcast</a>
+                </span>
+                .
+              </p>
             </div>
           </div>
 
