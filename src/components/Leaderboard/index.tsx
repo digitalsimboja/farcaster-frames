@@ -7,7 +7,12 @@ const Leaderboard: React.FC = () => {
         Top 10 WarpHeroes
       </h1>
       <div className="flex items-center justify-center mb-4 md:mb-8">
-        <Image src="/images/leaderboard.jpg"  alt="To 10 WarpHeroes"/>
+        <Image
+          src="/images/leaderboard.jpg"
+          width={100}
+          height={100}
+          alt="To 10 WarpHeroes"
+        />
       </div>
 
       <div className="flex items-center space-x-2 mb-4 ">
@@ -23,13 +28,13 @@ const Leaderboard: React.FC = () => {
       <div className="max-w-full grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
         <div className="relative w-64 h-full flex flex-col rounded-2xl bg-white cursor-pointer shadow-lg text-sm transform transition-transform scale-100 hover:scale-105">
           <Image
-            src="https://images.vexels.com/media/users/3/146835/raw/4fa5697db3abeba4798811609b85d70c-flat-sunset-background-illustration.jpg"
+            width={50}
+            height={50}
+            src=""
             alt="Top 10 WarpHeroes"
             className="overflow-hidden object-cover h-24 object-top w-full rounded-t-2xl min-h-[98px] "
           />
-          
         </div>
-      
       </div>
     </div>
   );

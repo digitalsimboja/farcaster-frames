@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         </div>
       </section>
 
-      <section className="md:mt-12 mt-8 bg-violet-100 py-4 px-4 md:px-24">
+      <section className=" bg-violet-100 py-4 px-4 md:px-24 m-auto">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-24">
           <div className="flex col-span-1 p-4 bg-gradient-to-tr from-gray-200 via-purple-50 to-pink-200 h-full rounded-xl">
             <div className="flex flex-col gap-4">
@@ -28,14 +28,16 @@ const Hero: React.FC = () => {
                 alike—to demonstrate their expertise and connect with protocols
                 efficiently via gamified challenges on Warpcast.
               </p>
-              <div className="mt-4 flex space-x-2 items-center">
-                <button className="bg-purple-600 rounded-full text-white px-4 py-2">
-                  Learn More!
-                </button>
-                <button className="bg-pink-600 rounded-full text-white px-4 py-2">
-                  Earn More!
-                </button>
-                <span>
+              <div className="mt-4 flex flex-col gap-2 md:flex-row ">
+                <div className="space-x-2">
+                  <button className="bg-purple-600 rounded-sm text-white px-4 py-2 md:px-4 md:py-2">
+                    Learn More!
+                  </button>
+                  <button className="bg-pink-600 rounded-sm text-white px-4 py-2 md:px-4">
+                    Earn More!
+                  </button>
+                </div>
+                <span className="bg-black text-white py-2 px-4 rounded-md md:px-4 md:py-2 text-center">
                   Meet us on <span className="underline">Warpcast</span>
                 </span>
               </div>
