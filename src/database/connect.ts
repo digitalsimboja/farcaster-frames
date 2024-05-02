@@ -1,4 +1,3 @@
-import { UserData } from '@/app/api/questions/route';
 import { config } from '@/config/config';
 import { Db, MongoClient } from 'mongodb';
 
