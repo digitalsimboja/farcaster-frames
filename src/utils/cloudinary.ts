@@ -1,5 +1,6 @@
-import { UserData } from "@/app/api/questions/route";
+
 import { config } from "@/config/config";
+import { UserData } from "@/database/user";
 import cloudinary from "cloudinary";
 import sharp from "sharp";
 
