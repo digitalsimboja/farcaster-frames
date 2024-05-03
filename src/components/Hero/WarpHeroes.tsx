@@ -12,7 +12,7 @@ const Leaders: WarpHeroesLeaders[] = [
     name: "Nexus",
     description:
       " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.xyz",
+    username: "evveland.eth",
     profileURL:
       "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
   },
@@ -20,7 +20,7 @@ const Leaders: WarpHeroesLeaders[] = [
     name: "Nexus",
     description:
       " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.xyz",
+    username: "evveland.eth",
     profileURL:
       "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
   },
@@ -28,7 +28,7 @@ const Leaders: WarpHeroesLeaders[] = [
     name: "Nexus",
     description:
       " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.xyz",
+    username: "evveland.eth",
     profileURL:
       "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
   },
@@ -36,7 +36,7 @@ const Leaders: WarpHeroesLeaders[] = [
     name: "Nexus",
     description:
       " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.xyz",
+    username: "evveland.eth",
     profileURL:
       "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
   },
@@ -53,24 +53,60 @@ const Leaders: WarpHeroesLeaders[] = [
 const WarpHeroes: React.FC = () => {
   return (
     <div>
-      <div className="border-b-[2px]  mb-4">
-        <div className="flex items-center space-x-2 justify-start">
-          <h1 className="font-semibold tracking-wider text-md md:text-2xl ">
-            Leaderboard
-          </h1>
-          <button className="bg-sky-300 py-1 px-2 rounded-full text-sm md:text-lg font-semibold hover:bg-sky-500 text-white cursor-pointer">
-            View all
-          </button>
+      <div className="border-b-[2px] w-full md:max-w-7xl  flex justify-between  mb-4">
+        <div>
+          <div className="flex items-center space-x-2 justify-start ">
+            <h3 className="font-semibold text-md md:text-xl tracking-wider">
+              Leaderboard
+            </h3>
+            <button className="text-sm py-1 px-2 cursor-pointer scale-100 shadow-md rounded-full hover:scale-105">
+              View all
+            </button>
+          </div>
+          <p className="text-sm md:text-md font-light tracking-wider mb-2">
+            Here is out top 10 WarpHeroes
+          </p>
         </div>
-        <p className="text-sm md:text-md font-light tracking-wider mb-2">
-          Here is out top 10 WarpHeroes
-        </p>
+        <div className="flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 mr-2 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            cursor={"pointer"}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            cursor={"pointer"}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-5  gap-4">
-        {/* Grid Items or Cards <div className="grid grid-cols-1 md:grid-cols-4 p-4 gap-4 "> */}
         {Leaders.map((leader, index) => {
           return (
-            <div key={index} className="w-full md:w-64 h-full flex flex-col rounded-2xl cursor-pointer shadow-lg text-sm transition-transform transform  scale-100 hover:scale-105 hover:shadow-xl hover:shadow-violet-400">
+            <div
+              key={index}
+              className="w-full md:w-64 h-full flex flex-col rounded-2xl cursor-pointer shadow-lg text-sm transition-transform transform  scale-100 hover:scale-105 hover:shadow-xl hover:shadow-violet-400"
+            >
               <Link href="https://venue.evveland.com/">
                 <img
                   src="https://images.vexels.com/media/users/3/146835/raw/4fa5697db3abeba4798811609b85d70c-flat-sunset-background-illustration.jpg"

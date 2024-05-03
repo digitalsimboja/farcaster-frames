@@ -18,7 +18,7 @@ const DesktopNav: React.FC = () => {
       </Link>
       <Link
         href="/signup"
-        className="border border-pink-300 rounded-full px-4 py-1"
+        className="border border-violet-700  rounded-full px-4 py-1"
       >
         Get Started
       </Link>
