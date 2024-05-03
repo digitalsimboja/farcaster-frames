@@ -1,3 +1,6 @@
+import { WarpHeroesLeaders } from "@/components/Hero/WarpHeroes";
+import { ProjectsProps } from "@/components/Projects";
+
 export const answers = [
     {
         id: 1,
@@ -81,3 +84,85 @@ export const answers = [
     }
 
 ]
+
+
+export const Projects: ProjectsProps[] = [
+    {
+        imagePath: "/images/ethereum.png",
+        projectURL: "www.warpheroes.xyz",
+        name: "Etheruem",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+    },
+    {
+        imagePath: "/images/aave.jpeg",
+        projectURL: "www.warpheroes.xyz",
+        name: "AAVE",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+    },
+    {
+        imagePath: "/images/base.png",
+        projectURL: "www.warpheroes.xyz",
+        name: "Base",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+    },
+    {
+        imagePath: "/images/farcaster.jpeg",
+        projectURL: "www.warpheroes.xyz",
+        name: "Farcaster",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+    },
+    {
+        imagePath: "/images/farcaster.jpeg",
+        projectURL: "www.warpheroes.xyz",
+        name: "Farcaster",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+    },
+];
+
+export const Leaders: WarpHeroesLeaders[] = [
+    {
+        name: "Nexus",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+        username: "evveland.eth",
+        profileURL:
+            "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
+    },
+    {
+        name: "Nexus",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+        username: "evveland.eth",
+        profileURL:
+            "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
+    },
+    {
+        name: "Nexus",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+        username: "evveland.eth",
+        profileURL:
+            "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
+    },
+    {
+        name: "Nexus",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+        username: "evveland.eth",
+        profileURL:
+            "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
+    },
+    {
+        name: "Nexus",
+        description:
+            " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+        username: "evveland.xyz",
+        profileURL:
+            "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
+    },
+];

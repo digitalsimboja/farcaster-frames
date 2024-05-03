@@ -1,5 +1,5 @@
+import { Projects } from "@/config/data";
 import Image from "next/image";
-import { Projects } from "../Projects";
 
 const TopCard: React.FC = () => {
   return (

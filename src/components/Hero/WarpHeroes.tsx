@@ -1,54 +1,12 @@
+import { Leaders } from "@/config/data";
 import Link from "next/link";
 
-interface WarpHeroesLeaders {
+export interface WarpHeroesLeaders {
   name: string;
   description: string;
   username: string;
   profileURL: string;
 }
-
-const Leaders: WarpHeroesLeaders[] = [
-  {
-    name: "Nexus",
-    description:
-      " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.eth",
-    profileURL:
-      "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
-  },
-  {
-    name: "Nexus",
-    description:
-      " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.eth",
-    profileURL:
-      "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
-  },
-  {
-    name: "Nexus",
-    description:
-      " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.eth",
-    profileURL:
-      "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
-  },
-  {
-    name: "Nexus",
-    description:
-      " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.eth",
-    profileURL:
-      "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
-  },
-  {
-    name: "Nexus",
-    description:
-      " Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
-    username: "evveland.xyz",
-    profileURL:
-      "https://e7.pngegg.com/pngimages/527/535/png-clipart-gamecube-controller-nintendo-game-controllers-video-game-consoles-cube-purple-blue.png",
-  },
-];
 
 const WarpHeroes: React.FC = () => {
   return (
