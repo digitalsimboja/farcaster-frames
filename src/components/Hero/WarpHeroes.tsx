@@ -66,11 +66,11 @@ const WarpHeroes: React.FC = () => {
           Here is out top 10 WarpHeroes
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-        {/* Grid Items or Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-5  gap-4">
+        {/* Grid Items or Cards <div className="grid grid-cols-1 md:grid-cols-4 p-4 gap-4 "> */}
         {Leaders.map((leader, index) => {
           return (
-            <div key={index} className="relative w-64 h-full flex flex-col rounded-2xl bg-white cursor-pointer shadow-lg text-sm transition-transform transform  scale-100 hover:scale-105 ">
+            <div key={index} className="w-full md:w-64 h-full flex flex-col rounded-2xl cursor-pointer shadow-lg text-sm transition-transform transform  scale-100 hover:scale-105 hover:shadow-xl hover:shadow-violet-400">
               <Link href="https://venue.evveland.com/">
                 <img
                   src="https://images.vexels.com/media/users/3/146835/raw/4fa5697db3abeba4798811609b85d70c-flat-sunset-background-illustration.jpg"

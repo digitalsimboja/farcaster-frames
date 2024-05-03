@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           </p>
         </div>
       </section>
-      <section className=" bg-violet-100 py-4 px-4 md:px-24">
+      <section className="bg-gradient-to-br from-gray-200 via-purple-50 to-pink-200 py-4 px-4 md:px-24">
         <TopCard />
         <WarpHeroes />
       </section>
