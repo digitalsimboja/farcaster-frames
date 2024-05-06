@@ -2,6 +2,8 @@ import { Projects } from "@/config/data";
 import Image from "next/image";
 import Link from "next/link";
 
+
+
 const TopCard: React.FC = () => {
   return (
     <div className="">
@@ -38,9 +40,7 @@ const TopCard: React.FC = () => {
             <div className="px-4 pb-8 mx-auto mb-8 max-w-7xl">
               <div className="flex justify-center gap-3">
                 {Projects.map((prj, index) => (
-                  <button className="w-3 h-3 rounded-full bg-gray-300"> 
-
-                  </button>
+                  <button className="w-3 h-3 rounded-full bg-gray-300"></button>
                 ))}
               </div>
             </div>
