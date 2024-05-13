@@ -106,9 +106,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(htmlContent)
   }
 
-
-
-
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {

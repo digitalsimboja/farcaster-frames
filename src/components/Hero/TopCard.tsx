@@ -1,8 +1,10 @@
-import { Projects } from "@/config/data";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+import { EmblaOptionsType } from 'embla-carousel'
+import EmblaCarousel from "../Carousel/EmblaCarousel";
 
-
+const OPTIONS: EmblaOptionsType = { loop: true }
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 const TopCard: React.FC = () => {
   return (
@@ -39,9 +41,7 @@ const TopCard: React.FC = () => {
           <div className="col-span-1 md:col-span-6">
             <div className="px-4 pb-8 mx-auto mb-8 max-w-7xl">
               <div className="flex justify-center gap-3">
-                {Projects.map((prj, index) => (
-                  <button className="w-3 h-3 rounded-full bg-gray-300"></button>
-                ))}
+              <EmblaCarousel slides={SLIDES} options={OPTIONS} />
               </div>
             </div>
           </div>

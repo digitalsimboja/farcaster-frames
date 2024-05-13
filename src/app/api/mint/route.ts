@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import satori from 'satori';
-import sharp from 'sharp';
+
 
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {

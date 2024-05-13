@@ -5,12 +5,10 @@ import Sponsors from "@/components/Projects";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-200 via-purple-50 to-pink-200 ">
+    <main className="min-h-screen bg-black text-white ">
       <div className="">
         <Navbar />
-        <Hero />
-        <Sponsors />
-
+        {/* <Hero /> */}
         <Footer />
       </div>
     </main>

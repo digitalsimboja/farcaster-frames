@@ -29,7 +29,7 @@ export const computeHtml = ({
         property="fc:frame:post_url"
         content="https://${config.hostUrl}/api/mint?type=mint"
       />
-      <meta property="fc:frame:button:1" content="Mint NFT!" />
+      <meta property="fc:frame:button:1" content="Mint for Free!" />
     </head>
     <body>
       <p>${content}</p>

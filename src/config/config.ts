@@ -31,5 +31,13 @@ export const config = {
         alchemy_url: process.env.ALCHEMY_NODE_URL,
         alchemy_api_key: process.env.ALCHEMY_API_KEY
 
-    }
+    },
+    thirdweb: {
+        chainId: Number(process.env.NEXT_PUBLIC_CHAIN_ID),
+        engine: {
+          url: process.env.THIRDWEB_ENGINE_URL,
+          wallet: process.env.THIRDWEB_ENGINE_WALLET,
+          accessToken: process.env.THIRDWEB_ACCESS_TOKEN,
+        },
+      },
 }

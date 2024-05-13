@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 
 export const metadata: Metadata = {
-  title: "Evveland Weekly Contest",
-  description: "A weekly contest by Evveland",
+  title: "WarpHeroes contest",
+  description: "Become a WarpHero by checking your knowledge of protocols",
   openGraph: {
-    title: "Evveland Weekly Contest",
-    description: "A weekly contest by Evveland",
+    title: "WarpHeroes contest",
+    description: "Become a WarpHero by checking your knowledge of protocols",
     images: [`${config.hostUrl}/images/ethereum/og.png`],
   },
   other: {
