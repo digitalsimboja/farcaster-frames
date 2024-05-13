@@ -27,7 +27,7 @@ export const computeHtml = ({
       />
       <meta
         property="fc:frame:post_url"
-        content="https://${config.hostUrl}/api/mint?type=mint"
+        content="${config.hostUrl}/api/mint?type=mint"
       />
       <meta property="fc:frame:button:1" content="Mint for Free!" />
     </head>
