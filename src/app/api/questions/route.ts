@@ -73,7 +73,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       return new NextResponse(htmlContent)
     } else {
       return new NextResponse(computeHtml({
-        imagePath: `/images/${protocol}/error.png`,
+        imagePath: `/images/ethereum/og.jpeg`,
         postType: "mint",
         content: "Qiuz already taken! Mint NFT"
 

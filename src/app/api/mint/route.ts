@@ -1,5 +1,6 @@
 import { ThirdWebEngine } from '@/Thirdweb/thirdweb';
 import { Warpcast } from '@/Warpcast/warpcast';
+import { config } from '@/config/config';
 import { computeHtml } from '@/utils/compute-html';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -18,12 +19,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     try {
         if (type === "mint") {
+           
             const isNFTOwned = await ThirdWebEngine.isNFTOwned(receiver)
 
             if (isNFTOwned) {
                 return new NextResponse(computeHtml({
-                    imagePath: `/images/ethereum/error.png`,
-                    postType: "start",
+                    imagePath: `/images/ethereum/og.jpeg`,
+                    postType: "mint",
                     content: "Congratulations! You are already a WarpHero"
                 }))
             }
@@ -32,8 +34,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
             if (isBalanceLow) {
                 return new NextResponse(computeHtml({
-                    imagePath: `/images/ethereum/error.png`,
-                    postType: "start",
+                    imagePath: `/images/ethereum/og.jpeg`,
+                    postType: "mint",
                     content: "Sorry we ran out of gas :("
                 }))
             }
@@ -42,8 +44,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
             if (!hasRecasted) {
                 return new NextResponse(computeHtml({
-                    imagePath: `/images/ethereum/error.png`,
-                    postType: "recast",
+                    imagePath: `/images/ethereum/og.jpeg`,
+                    postType: "mint",
                     content: "Recast is required to mint the NFT"
                 }))
             }
@@ -52,17 +54,19 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
             if (!hasLiked) {
                 return new NextResponse(computeHtml({
-                    imagePath: `/images/ethereum/error.png`,
-                    postType: "recast",
+                    imagePath: `/images/ethereum/og.jpeg`,
+                    postType: "mint",
                     content: "Like is required to mint the NFT"
                 }))
             }
 
             await ThirdWebEngine.mint(receiver)
-            
+
+            // Join the channel
+
             return new NextResponse(computeHtml({
-                imagePath: `/images/ethereum/error.png`,
-                postType: "recast",
+                imagePath: `/images/ethereum/og.jpeg`,
+                postType: "vote",
                 content: "Congrats! The NFT was sent to your wallet",
             }))
         }
@@ -75,6 +79,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         }
 
     } catch (err) {
+        console.log({ err })
         return new NextResponse(computeHtml({
             imagePath: `/images/ethereum/error.png`,
             postType: "start",
