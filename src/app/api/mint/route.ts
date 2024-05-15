@@ -1,6 +1,5 @@
 import { ThirdWebEngine } from '@/Thirdweb/thirdweb';
 import { Warpcast } from '@/Warpcast/warpcast';
-import { config } from '@/config/config';
 import { computeHtml } from '@/utils/compute-html';
 import { NextRequest, NextResponse } from 'next/server';
 

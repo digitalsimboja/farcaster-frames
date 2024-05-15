@@ -1,6 +1,5 @@
 "use client";
 import { EmblaOptionsType } from 'embla-carousel'
-import EmblaCarousel from "../Carousel/EmblaCarousel";
 
 const OPTIONS: EmblaOptionsType = { loop: true }
 const SLIDE_COUNT = 5
@@ -41,7 +40,6 @@ const TopCard: React.FC = () => {
           <div className="col-span-1 md:col-span-6">
             <div className="px-4 pb-8 mx-auto mb-8 max-w-7xl">
               <div className="flex justify-center gap-3">
-              <EmblaCarousel slides={SLIDES} options={OPTIONS} />
               </div>
             </div>
           </div>
