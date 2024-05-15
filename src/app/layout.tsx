@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "WarpHeroes contest",
-  description: "Become a WarpHero by checking your knowledge of protocols",
+  description: "Become a WarpHero by validating your knowledge of protocols",
   openGraph: {
     title: "WarpHeroes contest",
-    description: "Become a WarpHero by checking your knowledge of protocols",
+    description: "Become a WarpHero by validating your knowledge of protocols",
     images: [`${config.hostUrl}/images/ethereum/og.png`],
   },
   other: {

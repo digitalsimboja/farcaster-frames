@@ -31,18 +31,16 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   //const action = await Warpcast.validateMessage(messageBytes);
 
   const action = data.mockFrameData
-  const userAddress = action.interactor.custody_address;
+  const custody_address = action.interactor.custody_address;
 
   const castHash = data.untrustedData.castId.hash
 
   const protocol = getCastHashProtocol(castHash)
 
-  console.log({ castHash })
-
   if (!userData.custody_address) {
     userData.fid = action.interactor.fid as unknown as string;
     userData.username = action.interactor.username;
-    userData.custody_address = userAddress;
+    userData.custody_address = custody_address;
     userData.startTime = new Date().toISOString();
     userData.protocol = protocol;
 
@@ -66,10 +64,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:button:1:target" content="https://evveland.com" />
     <meta property="fc:frame:button:2" content="Join Leaderboard!" />
     <meta property="fc:frame:button:2:action" content="post" />
-    <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${userAddress}&protocol=${protocol}" />
+    <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?protocol=${protocol}" />
     </head></html>`
 
-    const userExists = await getUserDataByAddress(userAddress)
+    const userExists = await getUserDataByAddress(custody_address)
     if (!userExists) {
       await saveUserData(userData);
       return new NextResponse(htmlContent)

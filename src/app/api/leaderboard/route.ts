@@ -15,6 +15,7 @@ const fontData = fs.readFileSync(fontPath);
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     try {
+        const searchParams = req.nextUrl.searchParams;
 
         const userDataList: UserData[] = (await getAllUserData()).slice(0, 10);
         const jsx = generateJSX(userDataList);

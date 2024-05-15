@@ -4,7 +4,6 @@ import { computeHtml } from '@/utils/compute-html';
 import { NextRequest, NextResponse } from 'next/server';
 
 
-
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     const searchParams = req.nextUrl.searchParams;
     const type = searchParams.get('type')
@@ -18,8 +17,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const fid: number = action.interactor.fid;
 
     try {
-        if (type === "start") {
+        if (type === "mint") {
             const isNFTOwned = await ThirdWebEngine.isNFTOwned(receiver)
+
             if (isNFTOwned) {
                 return new NextResponse(computeHtml({
                     imagePath: `/images/ethereum/error.png`,
@@ -27,6 +27,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                     content: "Congratulations! You are already a WarpHero"
                 }))
             }
+
             const isBalanceLow = await ThirdWebEngine.isBalanceLow();
 
             if (isBalanceLow) {
@@ -36,15 +37,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                     content: "Sorry we ran out of gas :("
                 }))
             }
-            return new NextResponse(computeHtml({
-                imagePath: `/images/ethereum/error.png`,
-                postType: "recast",
-                content: "Like & recast to mint"
-            }))
-        }
 
-        else if (type === "recast") {
             const hasRecasted = await Warpcast.hasRecasted(fid)
+
             if (!hasRecasted) {
                 return new NextResponse(computeHtml({
                     imagePath: `/images/ethereum/error.png`,
@@ -63,23 +58,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                 }))
             }
 
-            return new NextResponse(computeHtml({
-                imagePath: `/images/ethereum/mint.png`,
-                postType: "mint",
-                content: "Mint Free NFT to join the WarpHero Community! "
-            }))
-        }
-
-        else if (type === "mint") {
-            const isNFTOwned = await ThirdWebEngine.isNFTOwned(receiver)
-            if (isNFTOwned) {
-                return new NextResponse(computeHtml({
-                    imagePath: `/images/ethereum/error.png`,
-                    postType: "start",
-                    content: "Congratulations! You are already a WarpHero"
-                }))
-            }
             await ThirdWebEngine.mint(receiver)
+            
             return new NextResponse(computeHtml({
                 imagePath: `/images/ethereum/error.png`,
                 postType: "recast",
