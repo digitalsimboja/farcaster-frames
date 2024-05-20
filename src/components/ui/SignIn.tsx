@@ -10,7 +10,6 @@ const SignIn: FC = () => {
   const { setSignerUuid, setFid } = useApp();
   const client_id = config.neynar.clientId;
 
-
   useEffect(() => {
     let script = document.getElementById(
       "siwn-script"
@@ -61,7 +60,7 @@ const SignIn: FC = () => {
   const getButton = useCallback(() => {
     return (
       <div
-        className=""
+        className="neynar_signin"
         data-client_id={client_id}
         data-success-callback="onSignInSuccess"
       ></div>

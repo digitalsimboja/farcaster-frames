@@ -7,8 +7,8 @@ import Image from "next/image";
 import SignIn from "../ui/SignIn";
 
 const DesktopNav: React.FC = () => {
-  const { userData, fid } = useApp();
-  const [user, _1, removeItem] = useLocalStorage<UserInfo>("user");
+  const { userData } = useApp();
+  const [_, _1, removeItem] = useLocalStorage<UserInfo>("user");
 
   const handleSignout = () => {
     removeItem();
