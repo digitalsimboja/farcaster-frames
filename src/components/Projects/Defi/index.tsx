@@ -1,5 +1,6 @@
 import { Projects } from "@/config/data";
 import Link from "next/link";
+import Image from "next/image";
 
 const Defi: React.FC = () => {
   return (
@@ -12,7 +13,8 @@ const Defi: React.FC = () => {
               className="w-full md:w-64 h-full flex flex-col rounded-2xl cursor-pointer shadow-lg text-sm transition-transform transform  scale-100 hover:scale-105 hover:shadow-xl hover:shadow-violet-400"
             >
               <Link href="https://venue.evveland.com/">
-                <img
+                <Image
+                  alt=""
                   src="https://images.vexels.com/media/users/3/146835/raw/4fa5697db3abeba4798811609b85d70c-flat-sunset-background-illustration.jpg"
                   className="w-full object-cover object-top h-[96px] overflow-hidden rounded-t-2xl min-h-[98px]"
                 />
@@ -30,9 +32,10 @@ const Defi: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-center">
-                    <img
+                    <Image
                       className="w-10 h-10 rounded-full "
                       src={project.imagePath}
+                      alt=""
                     />
                     <a
                       href="https://highlight.xyz"

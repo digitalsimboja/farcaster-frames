@@ -5,7 +5,7 @@ import { httpFetchBalanceStatus, httpFetchOwned, httpMint } from "@/utils/fetche
 export class ThirdWebEngine {
     public static isBalanceLow = async () => {
         const { result } = await httpFetchBalanceStatus();
-        const formattedEther = ethers.formatEther(result.value)
+        const formattedEther = ethers.utils.formatEther(result.value)
         const totalFormattedBalance = BigNumber(formattedEther).dp(6).toNumber();
 
         return totalFormattedBalance < 0.01
