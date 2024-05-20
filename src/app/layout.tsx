@@ -4,11 +4,9 @@ import "./globals.css";
 
 import { config } from "@/config/config";
 import { AppProvider } from "@/context/AppContext";
-
-
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
-
 
 export const metadata: Metadata = {
   title: "WarpHeroes contest",
@@ -34,9 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     <AppProvider>
-     <body className={inter.className}>{children}</body>
-     </AppProvider>
+      <AppProvider>
+        <body className={inter.className}>
+          <ToastContainer />
+          {children}
+        </body>
+      </AppProvider>
     </html>
   );
 }
