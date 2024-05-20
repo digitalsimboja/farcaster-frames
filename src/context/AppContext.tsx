@@ -14,7 +14,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { UserInfo } from "../../types";
+import { UserInfo } from "../types";
 import { verifyUser } from "@/utils/helpers";
 
 type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
@@ -89,7 +89,7 @@ export const AppProvider: FC<Props> = ({ children }) => {
     [userData, signerUuid, fid]
   );
 
-  return <AppContext.Provider value={value}>{children} </AppContext.Provider>;
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
 export const useApp = (): AppContextInterface => {

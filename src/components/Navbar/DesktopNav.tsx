@@ -2,7 +2,7 @@ import Link from "next/link";
 import { IoChevronDownSharp } from "react-icons/io5";
 import { useApp } from "@/context/AppContext";
 import useLocalStorage from "@/hooks/use-local-storage-state";
-import { UserInfo } from "../../../types";
+import { UserInfo } from "../../types";
 import Image from "next/image";
 import SignIn from "../ui/SignIn";
 
@@ -40,13 +40,20 @@ const DesktopNav: React.FC = () => {
           {userData?.displayName ? (
             <div className="flex items-center gap-4">
               {userData?.pfp.url && (
-                <Image src={userData?.pfp.url} alt="User profile image" width={32} height={32} className="rounded-full"/>
+                <Image
+                  src={userData?.pfp.url}
+                  alt="User profile image"
+                  width={32}
+                  height={32}
+                  className="rounded-full"
+                />
               )}
               <p className="text-sm font-semibold">{userData?.displayName}</p>
               <button onClick={handleSignout}>Sign Out</button>
-
             </div>
-          ) : (<SignIn />)}
+          ) : (
+            <SignIn />
+          )}
         </div>
       </div>
     </>

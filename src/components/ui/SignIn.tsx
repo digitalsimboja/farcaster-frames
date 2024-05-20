@@ -6,10 +6,10 @@ import useLocalStorage from "@/hooks/use-local-storage-state";
 import { FC, useCallback, useEffect } from "react";
 
 const SignIn: FC = () => {
-
   const [_, setUser] = useLocalStorage("user");
   const { setSignerUuid, setFid } = useApp();
   const client_id = config.neynar.clientId;
+
 
   useEffect(() => {
     let script = document.getElementById(
@@ -64,7 +64,7 @@ const SignIn: FC = () => {
         className=""
         data-client_id={client_id}
         data-success-callback="onSignInSuccess"
-      />
+      ></div>
     );
   }, []);
 
