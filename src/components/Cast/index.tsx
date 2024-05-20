@@ -3,7 +3,7 @@
 import useLocalStorage from "@/hooks/use-local-storage-state";
 import { UserInfo } from "@/types";
 import {
-  Cast,
+  Cast as CastType,
   CastWithInteractions,
 } from "@neynar/nodejs-sdk/build/neynar-api/v2";
 import Link from "next/link";
@@ -16,7 +16,7 @@ export default function Cast({
   author,
 }: {
   cast: CastWithInteractions | undefined;
-  author?: Cast["author"];
+  author?: CastType["author"];
 }): ReactElement {
   const [hovering, setHovering] = useState(true);
   const [user] = useLocalStorage<UserInfo>("user");

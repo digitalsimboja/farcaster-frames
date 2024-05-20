@@ -37,7 +37,7 @@ export const MyCasts: React.FC = () => {
       ) : (
         <>
           {Array.from({ length: 6 }).map((_, i) => (
-            <CastSkeleton />
+            <CastSkeleton key={i} />
           ))}
         </>
       )}
