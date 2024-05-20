@@ -1,7 +1,7 @@
 
 import { config } from '@/config/config';
 import { UserData, getUserDataByAddress, saveUserData } from '@/database/user';
-import { getCastHashProtocol } from '@/utils/common';
+import { getActionData, getCastHashProtocol } from '@/utils/common';
 import { computeHtml } from '@/utils/compute-html';
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -25,21 +25,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const idAsNumber = parseInt(id)
   const nextId = idAsNumber + 1;
 
-  const data = await req.json();
-
-  const messageBytes = data.trustedData.messageBytes;
-  //const action = await Warpcast.validateMessage(messageBytes);
-
-  const action = data.mockFrameData
-  const custody_address = action.interactor.custody_address;
-
-  const castHash = data.untrustedData.castId.hash
+  const { custody_address, fid, castHash, username } = await getActionData(req)
 
   const protocol = getCastHashProtocol(castHash)
 
   if (!userData.custody_address) {
-    userData.fid = action.interactor.fid as unknown as string;
-    userData.username = action.interactor.username;
+    userData.fid = fid as unknown as string;
+    userData.username = username;
     userData.custody_address = custody_address;
     userData.startTime = new Date().toISOString();
     userData.protocol = protocol;

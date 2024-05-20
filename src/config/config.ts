@@ -2,7 +2,8 @@ export const config = {
     hostUrl: process.env.NEXT_PUBLIC_SITE_URL,
     MONGODB_URI: process.env.MONGODB_URI,
     neynar: {
-        apiKey: process.env.NEYNAR_API_KEY
+        apiKey: process.env.NEYNAR_API_KEY,
+        clientId: process.env.NEXT_PUBLIC_NEYNAR_CLIENT_ID
     },
     warpcast: {
         castHash: process.env.NEXT_PUBLIC_WARPCAST_CAST_HASH,
