@@ -1,3 +1,4 @@
+import Feature from "@/components/Feature";
 import Feed from "@/components/Feed";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -13,6 +14,7 @@ export default function Home() {
 
         {/* <Feed /> */}
         <Hero />
+        <Feature />
         <Footer />
       </div>
     </main>

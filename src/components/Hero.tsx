@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           </p>
         </div>
       </section>
-      <section className="py-8 md:py-32 mb-4 md:mb-12">
+      <section className="py-8 md:py-32 mb-2">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           <div className="p-0 md:pt-24">
             <div className="flex flex-col gap-4 justify-start">
@@ -59,15 +59,15 @@ const Hero: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="relative shadow-lg">
+
+          <div>
             <Image
               src="/images/hero.jpeg"
               alt="WarpHeroes-landing"
-              width={700}
-              height={300}
-              className="absolute inset-0 object-cover z-0 opacity-50"
+              width={500}
+              height={400}
+              className="opacity-50"
             />
-             <div className="absolute inset-0 opacity-10 z-10"></div>
           </div>
         </div>
       </section>

@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .animate-marquee {
   display: inline-block;
   animation: marquee 30s linear infinite;
 }
-
 
 @layer components {
   .btn-primary {
@@ -22,4 +24,9 @@
   .btn-secondary {
     @apply py-2 px-5 bg-pink-500 text-white font-semibold rounded-full shadow-md hover:bg-pink-700 focus:outline-none focus:ring focus:ring-pink-400 focus:ring-opacity-75;
   }
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
 }
