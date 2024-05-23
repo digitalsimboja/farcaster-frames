@@ -1,0 +1,78 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const Hero: React.FC = () => {
+  return (
+    <>
+      <section className="">
+        <div className="py-4 max-w-5xl overflow-hidden w-full">
+          <p className="animate-marquee whitespace-nowrap text-pink-300 font-light text-sm md:text-lg ">
+            By cultivating a community through our quiz-based Proof of
+            Expertise, Warpheroes strives to be the pivotal gamified community
+            bridging individuals with protocols, fostering both growth and
+            innovation in the Web3 ecosystem.
+          </p>
+        </div>
+      </section>
+      <section className="py-8 md:py-32 mb-4 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+          <div className="p-0 md:pt-24">
+            <div className="flex flex-col gap-4 justify-start">
+              <div>
+                <h2 className="text-2xl md:text-7xl pb-1 md:pb-4 font-bold tracking-wide">
+                  WarpHeroes
+                </h2>
+                <p className="text-lg font-light tracking-wider">
+                  Optimizing web3 Building through Proof of Expertise &
+                  peer-to-peer skill validation
+                </p>
+              </div>
+              <div>
+                <p className="text-lg font-light tracking-normal">
+                  Warpheroes enables Web3 builders - developers and enthusiasts
+                  alike to demonstrate their expertise and connect with
+                  protocols efficiently via gamified challenges on Warpcast.
+                </p>
+              </div>
+              <div className="flex flex-col md:flex-row gap-4 md:gap-0 space-x-2 py-4 md:py-8 items-center ">
+                <div className="space-x-4 ju">
+                  <Link
+                    href={"/learn"}
+                    className="btn-primary w-full md:w-auto text-center text-xs md:text-md"
+                  >
+                    Learn More!
+                  </Link>
+                  <Link
+                    href={"/earn"}
+                    className="btn-secondary w-full md:w-auto text-center  text-xs md:text-md"
+                  >
+                    Earn More!
+                  </Link>
+                </div>
+                <div>
+                  <Link href={"/warpheroes"}>
+                    <span className="bg-black text-white text-center w-full md:w-auto">
+                      Meet us on <span className="underline">Warpcast</span>
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative shadow-lg">
+            <Image
+              src="/images/hero.jpeg"
+              alt="WarpHeroes-landing"
+              width={700}
+              height={300}
+              className="absolute inset-0 object-cover z-0 opacity-50"
+            />
+             <div className="absolute inset-0 opacity-10 z-10"></div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Hero;

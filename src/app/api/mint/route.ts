@@ -75,7 +75,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         }
 
     } catch (err) {
-        console.log({ err })
+      
         return new NextResponse(computeHtml({
             imagePath: `/images/ethereum/error.png`,
             postType: "start",

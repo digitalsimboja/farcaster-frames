@@ -6,7 +6,6 @@ import { useApp } from "@/context/AppContext";
 import useLocalStorage from "@/hooks/use-local-storage-state";
 import { UserInfo } from "../../types";
 import Image from "next/image";
-import SignIn from "../ui/SignIn";
 import { useState } from "react";
 import {
   Dialog,
@@ -18,6 +17,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { PlusIcon } from "lucide-react";
+import SignIn from "../SignIn";
 
 const DesktopNav: React.FC = () => {
   const { userData } = useApp();
@@ -116,11 +116,11 @@ const DesktopNav: React.FC = () => {
           </Link>
           <IoChevronDownSharp className="ml-1 transform -translate-y-0.2 " />
         </div>
-        <Link href="/jobs" className="">
-          Dex Jobs
+        <Link href="/concept" className="">
+          Concept
         </Link>
-        <Link href="/quiz" className="">
-          Take Quiz!
+        <Link href="/roadmap" className="">
+          Roadmap
         </Link>
         <Link
           href="/signup"

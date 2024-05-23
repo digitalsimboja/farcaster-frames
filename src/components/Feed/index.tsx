@@ -18,6 +18,6 @@ async function getFeed() {
     });
     return { feed };
   } catch (e) {
-    console.error("Error fetching feed from Neynar");
+    console.error("Error fetching feed from Neynar: ");
   }
 }

@@ -3,10 +3,12 @@ import { isApiErrorResponse } from "@neynar/nodejs-sdk";
 import NeynarClient from "@/clients/Neynar/neynar";
 
 export async function POST(req: NextRequest) {
-    const { signerUuid, fid } = (await req.json()) as {
+    const data = await req.json() as {
         signerUuid: string;
         fid: string;
     };
+
+    const { signerUuid, fid } = data;
 
     let isVerifiedUser = false;
     try {
@@ -20,7 +22,7 @@ export async function POST(req: NextRequest) {
         }
         return NextResponse.json({ isVerifiedUser }, { status: 200 })
     } catch (error) {
-        console.error(error)
+        console.error("Failed user verification ", error)
         if (isApiErrorResponse(error)) {
             return NextResponse.json(
                 { ...error.response.data },

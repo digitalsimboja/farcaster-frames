@@ -44,7 +44,6 @@ const SignIn: FC = () => {
 
   useEffect(() => {
     window.onSignInSuccess = (data) => {
-      console.log({ data });
       setUser({
         signerUuid: data.signer_uuid,
         fid: data.fid,
