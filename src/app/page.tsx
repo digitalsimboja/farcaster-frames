@@ -1,6 +1,7 @@
 import Feature from "@/components/Feature";
 import Feed from "@/components/Feed";
 import Footer from "@/components/Footer";
+import GetStarted from "@/components/GetStarted";
 import Hero from "@/components/Hero";
 
 import Navbar from "@/components/Navbar";
@@ -15,6 +16,7 @@ export default function Home() {
         {/* <Feed /> */}
         <Hero />
         <Feature />
+        <GetStarted />
         <Footer />
       </div>
     </main>

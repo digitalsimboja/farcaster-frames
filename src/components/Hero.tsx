@@ -5,8 +5,8 @@ const Hero: React.FC = () => {
   return (
     <>
       <section className="">
-        <div className="py-4 max-w-5xl overflow-hidden w-full">
-          <p className="animate-marquee whitespace-nowrap text-pink-300 font-light text-sm md:text-lg ">
+        <div className="py-4 ml-4 md:ml-12 max-w-5xl overflow-hidden w-full">
+          <p className="animate-marquee whitespace-nowrap text-pink-500  text-sm md:text-lg ">
             By cultivating a community through our quiz-based Proof of
             Expertise, Warpheroes strives to be the pivotal gamified community
             bridging individuals with protocols, fostering both growth and
