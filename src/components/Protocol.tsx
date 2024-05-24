@@ -46,7 +46,7 @@ const Protocol: React.FC = () => {
                 {detail.icon}
               </div>
               <h2 className="font-semibold text-md md:text-xl">{detail.title}</h2>
-              <p className="font-light">{detail.description}</p>
+              <p className="text-gray-400">{detail.description}</p>
             </div>
           ))}
         </div>
