@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 
 import Navbar from "@/components/Navbar";
 import Protocol from "@/components/Protocol";
+import Roadmap from "@/components/Roadmap";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <Feature />
         <GetStarted />
         <Protocol />
+        <Roadmap />
         <Footer />
       </div>
     </main>
