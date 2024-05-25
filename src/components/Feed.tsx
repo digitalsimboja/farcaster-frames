@@ -1,6 +1,7 @@
 import NeynarClient from "@/clients/Neynar/neynar";
 import { FeedType, FilterType } from "@neynar/nodejs-sdk";
-import { Casts } from "../Cast/Casts";
+import { Casts } from "./Cast/Casts";
+
 
 export const revalidate = 3600;
 
