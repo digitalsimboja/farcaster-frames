@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="flex flex-col justify-center items-center gap-y-6 text-center p-4 mt-[100%]">
+        <footer className="flex flex-col justify-center items-center gap-y-6 text-center p-4">
         <Link
           href="https://docs.neynar.com/docs/how-to-let-users-connect-farcaster-accounts-with-write-access-for-free-using-sign-in-with-neynar-siwn"
           target="_blank"

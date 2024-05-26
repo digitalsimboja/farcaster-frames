@@ -6,6 +6,7 @@ import Navbar from "@/components/Navigation/Navbar";
 
 
 import Protocol from "@/components/Protocol";
+import Referral from "@/components/Referral";
 import Roadmap from "@/components/Roadmap";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <GetStarted />
         <Protocol />
         <Roadmap />
+        <Referral />
         <Footer />
       </div>
     </main>
