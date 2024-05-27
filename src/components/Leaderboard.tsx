@@ -1,7 +1,6 @@
 "use client";
 
 import { UserData } from "@/database/user";
-import { useEffect, useState } from "react";
 import { FaTrophy } from "react-icons/fa";
 import { FC } from "react";
 import { config } from "@/config/config";
@@ -17,10 +16,13 @@ const DisplayLeaderboard: FC<LeaderboardProps> = ({ userData }) => {
     <>
       {userData.map((user, index) => (
         <div key={index} className="bg-gray-700 p-2 md:p-4 w-full">
-          <div className="flex items-center justify-between text-2xl md:text-4xl">
-            <div className="flex items-center">
+          <div className="flex items-center justify-between text-xl md:text-4xl">
+            <div className="flex  items-center">
               <FaTrophy className="text-yellow-500 mr-2 md:mr-4" />
               <h2>{user.username}</h2>
+            </div>
+            <div className="flex items-center">
+              <h2>{user.completionTime}ms</h2>
             </div>
           </div>
         </div>
