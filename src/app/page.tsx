@@ -11,6 +11,8 @@ import Referral from "@/components/Referral";
 import Roadmap from "@/components/Roadmap";
 import Tokenomic from "@/components/Tokenomic";
 
+
+
 export default function Home() {
   return (
     <main className="min-h-screen   bg-black text-white ">
