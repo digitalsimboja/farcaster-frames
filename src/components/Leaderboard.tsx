@@ -23,9 +23,16 @@ const Leaderboard: React.FC = () => {
       </div>
       <span className="block items-center justify-center mb-4 border-b-[1px] border-gray-700 "></span>
 
-     <div>
-      
-     </div>
+      <div className="mt-4 md:mt-6">
+        <div className=" shadow-lg shadow-pink-700 hover:shadow-gray-500 h-full md:h-80 bg-gray-900">
+          <div className="flex justify-around items-center p-4 md:p-8 text-2xl">
+            <h2>Rank</h2>
+            <h2>User</h2>
+            <h2>Projects</h2>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
