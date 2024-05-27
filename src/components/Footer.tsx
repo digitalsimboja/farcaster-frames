@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="flex flex-col justify-center items-center gap-y-6 text-center p-4">
+        <footer className="flex flex-col justify-center items-center gap-y-6 text-center p-4 mt-[25%]">
         <Link
           href="https://docs.neynar.com/docs/how-to-let-users-connect-farcaster-accounts-with-write-access-for-free-using-sign-in-with-neynar-siwn"
           target="_blank"
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           href="https://github.com"
           target="_blank"
         >
-          Github Repo -&gt; <span className="font-bold">WarpHeroes</span>
+         Farcaster -&gt; <span className="font-bold">WarpHeroes</span>
         </Link>
       </footer>
     )
