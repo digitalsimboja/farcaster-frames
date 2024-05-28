@@ -116,10 +116,10 @@ const DesktopNav: React.FC = () => {
           </Link>
           <IoChevronDownSharp className="ml-1 transform -translate-y-0.2 " />
         </div>
-        <Link href="/concept" className="">
+        <Link href="/#concept" className="">
           Concept
         </Link>
-        <Link href="/roadmap" className="">
+        <Link href="/#roadmap" className="">
           Roadmap
         </Link>
         <Link

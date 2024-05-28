@@ -11,19 +11,25 @@ type LeaderboardProps = {
   userData: UserData[];
 };
 
-
 const DisplayLeaderboard: FC<LeaderboardProps> = ({ userData }) => {
   return (
     <>
       {userData.map((user, index) => (
-        <div key={index} className="bg-gray-700 p-2 md:p-4 w-full scale-100 hover:scale-105 rounded-xl">
+        <div
+          key={index}
+          className="bg-gray-700 p-2 md:p-4 w-full scale-100 hover:scale-105 rounded-xl"
+        >
           <div className="flex items-center justify-between text-sm md:text-2xl">
             <div className="flex items-center">
-              <FaTrophy className="text-yellow-500 mr-2 md:mr-4" />
+              {index + 1 === 1 ? (
+                <FaTrophy className="text-yellow-500 mr-2 md:mr-4" />
+              ) : (
+                <h2 className="mr-2 md:mr-4 text-pink-500"> #{index + 1}</h2>
+              )}
               <h2>{user.username}</h2>
             </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4  mr-2 md:mr-4 bg-green-500 rounded-full"></div>
+            <div className="flex items-center mr-2 md:mr-4">
+              <div className="w-4 h-4 mr-2 bg-green-500 rounded-full "></div>
               <h2>{user.completionTime}ms</h2>
             </div>
           </div>

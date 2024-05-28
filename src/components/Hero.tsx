@@ -37,20 +37,25 @@ const Hero: React.FC = () => {
               <div className="flex flex-col md:flex-row gap-4 md:gap-0 space-x-2 py-4 md:py-8 items-center ">
                 <div className="space-x-4 ju">
                   <Link
-                    href={"/learn"}
+                    href={"https://warpcast.com/~/channel/warpheroes"}
+                    target="_blank"
                     className="btn-primary w-full md:w-auto text-center text-xs md:text-md"
                   >
                     Learn More!
                   </Link>
                   <Link
-                    href={"/earn"}
+                    href={"https://warpcast.com/~/channel/warpheroes"}
+                    target="_blank"
                     className="btn-secondary w-full md:w-auto text-center  text-xs md:text-md"
                   >
                     Earn More!
                   </Link>
                 </div>
                 <div>
-                  <Link href={"/warpheroes"}>
+                  <Link
+                    href={"https://warpcast.com/~/channel/warpheroes"}
+                    target="_blank"
+                  >
                     <span className="bg-black text-white text-center w-full md:w-auto">
                       Meet us on <span className="underline">Warpcast</span>
                     </span>

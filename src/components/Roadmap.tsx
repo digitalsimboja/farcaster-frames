@@ -50,7 +50,7 @@ const Roadmap: FC = () => {
   ];
 
   return (
-    <section className="mt-8 md:mt-24 px-4 md:px-12">
+    <section id="roadmap" className="mt-8 md:mt-24 px-4 md:px-12">
       <div className="text-center">
         <h2 className="text-2xl md:text-4xl font-bold uppercase text-shadow mb-2 text-outline tracking-wide md:tracking-wider">
           Roadmap

@@ -4,7 +4,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 const Feature: React.FC = () => {
   return (
     <>
-      <section className="relative ">
+      <section id="concept" className="relative ">
         <div className="md:mb-64">
           <div className="flex justify-around md:flex-row flex-col gap-4 relative">
             <div className="md:relative relative h-[400px] md:h-auto">
