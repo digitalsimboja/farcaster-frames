@@ -2,6 +2,7 @@ import { config } from "@/config/config";
 import { NextRequest } from "next/server";
 import { ErrorRes } from "@neynar/nodejs-sdk/build/neynar-api/v2";
 import axios, { AxiosError } from "axios";
+import { Warpcast } from "@/clients/Warpcast/warpcast";
 
 
 
@@ -22,8 +23,8 @@ export const getActionData = async (req: NextRequest) => {
     const data = await req.json();
 
     const messageBytes = data.trustedData.messageBytes;
-    //const action = await Warpcast.validateMessage(messageBytes);
-    const action = data.mockFrameData
+    const action = await Warpcast.validateMessage(messageBytes);
+    //const action = data.mockFrameData
 
     const custody_address = action.interactor.custody_address;
     const fid: number = action.interactor.fid;
