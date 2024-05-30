@@ -8,7 +8,7 @@ interface MobileNavProps {
 
 const MobileNav: React.FC<MobileNavProps> = ({ onClose }) => {
   return (
-    <div className="fixed top-0 right-0 bg-gray-500 overflow-hidden transition-transform transform w-64 z-[1000]">
+    <div className="fixed top-0 right-0 bg-gray-900 overflow-hidden transition-transform transform w-64 z-[1000]">
       <div className="absolute top-4 right-4">
         <FaTimes
           className="text-white cursor-pointer"
@@ -20,15 +20,18 @@ const MobileNav: React.FC<MobileNavProps> = ({ onClose }) => {
           <Link href="/">Home</Link>
         </li>
         <li className="hover:text-gray-300">
-          <Link href="/solutions">Projects</Link>
+          <Link href="/concept">Concept</Link>
         </li>
         <li className="hover:text-gray-300">
-          <Link href="/pricing">Protocols</Link>
+          <Link href="/dao">DAO</Link>
+        </li>
+        <li className="hover:text-gray-300">
+          <Link href="/leaderboard">Leaderboard</Link>
         </li>
       </ul>
 
       {/* Horizontal Divider */}
-      <hr className="border-t my-4 border-gray-100" />
+      <hr className="border-t my-4 border-gray-500 mb-4" />
     </div>
   );
 };

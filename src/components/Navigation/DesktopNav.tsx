@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { IoChevronDownSharp } from "react-icons/io5";
 import { useApp } from "@/context/AppContext";
 import useLocalStorage from "@/hooks/use-local-storage-state";
 import { UserInfo } from "../../types";
@@ -17,7 +16,6 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { PlusIcon } from "lucide-react";
-import SignIn from "../SignIn";
 
 const DesktopNav: React.FC = () => {
   const { userData } = useApp();
@@ -110,25 +108,15 @@ const DesktopNav: React.FC = () => {
   return (
     <>
       <div className="hidden md:flex justify-between gap-8 items-center font-bold relative ">
-        <div className="relative group flex items-center">
-          <Link href="" className="">
-            Projects
-          </Link>
-          <IoChevronDownSharp className="ml-1 transform -translate-y-0.2 " />
-        </div>
-        <Link href="/#concept" className="">
+        <Link href="/concept" className="">
           Concept
         </Link>
-        <Link href="/#roadmap" className="">
-          Roadmap
+        <Link href="/dao" className="">
+          DAO
         </Link>
-        <Link
-          href="/signup"
-          className="border border-violet-700  rounded-full px-4 py-1"
-        >
-          Get Started
-        </Link>
-        <div className="">
+        <Link href="/leaderboard">Leaderboard</Link>
+
+        {/* <div className="">
           {userData?.displayName ? (
             <div className="flex items-center gap-4">
               {userData?.pfp.url && (
@@ -147,7 +135,7 @@ const DesktopNav: React.FC = () => {
           ) : (
             <SignIn />
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );
