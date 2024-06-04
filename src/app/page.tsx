@@ -21,13 +21,13 @@ export default function Home() {
 
         {/* <Feed /> */}
         <Hero />
-        <Feature />
+        {/* <Feature />
         <GetStarted />
         <Protocol />
         <Roadmap />
         <Referral />
         <Leaderboard />
-        {/* <Tokenomic /> */}
+        <Tokenomic /> */}
         <Footer />
       </div>
     </main>

@@ -22,33 +22,27 @@ const Hero: React.FC = () => {
                 <h2 className="text-2xl md:text-7xl pb-1 md:pb-4 font-bold tracking-wide">
                   WarpHeroes
                 </h2>
-                <p className="text-lg font-light tracking-wider">
-                  Optimizing web3 Building through Proof of Expertise &
-                  peer-to-peer skill validation
+                <p className="text-2xl font-light tracking-wide">
+                Do you know more about Ethereum than Vitalik Buterin?
+
                 </p>
               </div>
-              <div>
-                <p className="text-lg font-light tracking-normal">
-                  Warpheroes enables Web3 builders - developers and enthusiasts
-                  alike to demonstrate their expertise and connect with
-                  protocols efficiently via gamified challenges on Warpcast.
-                </p>
-              </div>
+          
               <div className="flex flex-col md:flex-row gap-4 md:gap-0 space-x-2 py-4 md:py-8 items-center ">
-                <div className="space-x-4 ju">
+                <div className="space-x-4 ">
                   <Link
                     href={"https://warpcast.com/~/channel/warpheroes"}
                     target="_blank"
-                    className="btn-primary w-full md:w-auto text-center text-xs md:text-md"
+                    className="btn-primary w-full md:w-auto text-center text-sm"
                   >
-                    Learn More!
+                    Prove it!
                   </Link>
                   <Link
                     href={"https://warpcast.com/~/channel/warpheroes"}
                     target="_blank"
-                    className="btn-secondary w-full md:w-auto text-center  text-xs md:text-md"
+                    className="btn-secondary w-full md:w-auto text-center  text-sm"
                   >
-                    Earn More!
+                   Join Community
                   </Link>
                 </div>
                 <div>
