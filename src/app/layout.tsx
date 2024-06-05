@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppProvider>
-        <body className={inter.className}>
+        <body className={`${inter.className} bg-black text-white`}>
           <ToastContainer />
           {children}
         </body>
