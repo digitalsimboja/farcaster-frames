@@ -29,13 +29,23 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const protocol = getCastHashProtocol(castHash)
 
+  const userExists = await getUserDataByAddress(custody_address)
+
+  if (userExists) {
+    return new NextResponse(computeHtml({
+      imagePath: `/images/ethereum/og.jpeg`,
+      postType: "mint",
+      content: "Qiuz already taken! Mint NFT"
+    }))
+
+  }
+
   if (!userData.custody_address) {
     userData.fid = fid as unknown as string;
     userData.username = username;
     userData.custody_address = custody_address;
     userData.startTime = new Date().toISOString();
     userData.protocol = protocol;
-
   }
 
 
@@ -59,18 +69,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?protocol=${protocol}" />
     </head></html>`
 
-    const userExists = await getUserDataByAddress(custody_address)
-    if (!userExists) {
-      await saveUserData(userData);
-      return new NextResponse(htmlContent)
-    } else {
-      return new NextResponse(computeHtml({
-        imagePath: `/images/ethereum/og.jpeg`,
-        postType: "mint",
-        content: "Qiuz already taken! Mint NFT"
+    await saveUserData(userData);
 
-      }))
-    }
+    return new NextResponse(htmlContent)
 
   } else {
     const htmlContent = `<!DOCTYPE html><html><head>

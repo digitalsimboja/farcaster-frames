@@ -3,7 +3,7 @@
 export const answers = [
     {
         id: 1,
-        answer: "B"
+        answer: "C"
     },
     {
         id: 2,
@@ -11,23 +11,23 @@ export const answers = [
     },
     {
         id: 3,
-        answer: "A"
+        answer: "B"
     },
     {
         id: 4,
-        answer: "C"
+        answer: "A"
     },
     {
         id: 5,
-        answer: "B"
+        answer: "A"
     },
     {
         id: 6,
-        answer: "B"
+        answer: "A"
     },
     {
         id: 7,
-        answer: "C"
+        answer: "B"
     },
     {
         id: 8,
@@ -35,11 +35,11 @@ export const answers = [
     },
     {
         id: 9,
-        answer: "C"
+        answer: "A"
     },
     {
         id: 10,
-        answer: "B"
+        answer: "C"
     },
     {
         id: 11,

@@ -83,7 +83,7 @@ const Leaderboard: React.FC = () => {
             </h2>
             <p className="max-w-3xl text-gray-500">
               This board shows top WarpHeroes. The first leaderboard round will
-              be closed in July. Top 100 WarpHeroes will receive a
+              be closed on July 5th. Top 100 WarpHeroes will receive a
               non-transferable Mystery Box NFT unlocking physical merchandise.
             </p>
           </div>

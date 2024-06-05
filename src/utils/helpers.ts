@@ -9,8 +9,8 @@ import { Warpcast } from "@/clients/Warpcast/warpcast";
 export const getCastHashProtocol = (castHash: string) => {
     const protocolKeys = Object.keys(config.protocol) as (keyof typeof config.protocol)[];
 
-    for (const protcl of protocolKeys) {
-        const protocol = config.protocol[protcl];
+    for (const prtclKey of protocolKeys) {
+        const protocol = config.protocol[prtclKey];
         if (protocol.castHash === castHash) {
             return protocol.name;
         }
@@ -23,8 +23,8 @@ export const getActionData = async (req: NextRequest) => {
     const data = await req.json();
 
     const messageBytes = data.trustedData.messageBytes;
-    const action = await Warpcast.validateMessage(messageBytes);
-    //const action = data.mockFrameData
+    //const action = await Warpcast.validateMessage(messageBytes);
+    const action = data.mockFrameData
 
     const custody_address = action.interactor.custody_address;
     const fid: number = action.interactor.fid;
