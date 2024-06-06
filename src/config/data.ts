@@ -39,7 +39,7 @@ export const answers = [
     },
     {
         id: 10,
-        answer: "C"
+        answer: "D"
     },
     {
         id: 11,

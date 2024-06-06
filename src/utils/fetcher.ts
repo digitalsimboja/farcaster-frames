@@ -38,10 +38,16 @@ export const httpFetchBalanceStatus = async () => {
 
     const result = await response.json();
 
+    console.log(result)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error}`);
+    }
+
     return balanceResponseSchema.parse(result);
 }
 
 export const httpFetchOwned = async (reciever: string) => {
+    console.log(config.thirdweb.engine.url)
     const response = await fetch(
         `${config.thirdweb.engine.url}/contract/${config.thirdweb.chainId}/${config.contractAddress
         }/erc721/get-owned?walletAddress=${reciever.toLowerCase()}`,
@@ -56,6 +62,11 @@ export const httpFetchOwned = async (reciever: string) => {
     );
 
     const result = await response.json();
+
+    console.log(result)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error}`);
+    }
 
     return ownedResponseSchema.parse(result);
 };
@@ -76,6 +87,11 @@ export const httpMint = async (receiver: string) => {
     );
 
     const result = await response.json();
+
+    console.log(result)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error}`);
+    }
 
     return mintResponseSchema.parse(result);
 };

@@ -20,7 +20,7 @@ export const config = {
             active: process.env.NEXT_PUBLIC_MATIC_IS_ACTIVE || false
         }
     },
-    contractAddress: process.env.NEXT_PUBLIC_SMART_CONTRACT,
+    contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     cloudinary: {
         cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
         api_key: process.env.CLOUDINARY_API_KEY,
@@ -36,9 +36,11 @@ export const config = {
     thirdweb: {
         chainId: Number(process.env.NEXT_PUBLIC_CHAIN_ID),
         engine: {
-          url: process.env.THIRDWEB_ENGINE_URL,
-          wallet: process.env.THIRDWEB_ENGINE_WALLET,
-          accessToken: process.env.THIRDWEB_ACCESS_TOKEN,
+            clientId: process.env.THIRDWEB_CLIENT_ID,
+            secretKey: process.env.THIRDWEB_SECRET_KEY,
+            url: process.env.THIRDWEB_ENGINE_URL,
+            wallet: process.env.THIRDWEB_ENGINE_WALLET,
+            accessToken: process.env.THIRDWEB_ACCESS_TOKEN,
         },
-      },
+    },
 }

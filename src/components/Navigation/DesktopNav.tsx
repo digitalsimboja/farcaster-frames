@@ -16,6 +16,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { PlusIcon } from "lucide-react";
+import Connect from "../ui/connect";
 
 const DesktopNav: React.FC = () => {
   const { userData } = useApp();
@@ -115,6 +116,7 @@ const DesktopNav: React.FC = () => {
           DAO
         </Link>
         <Link href="/leaderboard">Leaderboard</Link>
+        <Connect />
 
         {/* <div className="">
           {userData?.displayName ? (
