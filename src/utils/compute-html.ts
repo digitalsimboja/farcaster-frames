@@ -54,7 +54,7 @@ export const computeHtml = ({
         />
         <meta
           property="fc:frame:post_url"
-          content="${config.hostUrl}/api/mint?type=${postType}"
+          content="https://warpcast.com/digitalsimboja/0xc7903af7"
         />
         <meta property="fc:frame:button:1" content="${content}" />
       </head>

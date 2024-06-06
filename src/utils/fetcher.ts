@@ -24,16 +24,18 @@ const ownedResponseSchema = z.object({
 });
 
 export const httpFetchBalanceStatus = async () => {
+    const url = `${config.thirdweb.engine.url}/backend-wallet/${config.thirdweb.chainId}/${config.thirdweb.engine.wallet}/get-balance`
+    const httpOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${config.thirdweb.engine.accessToken}`,
+            "x-backend-wallet-address": config.thirdweb.engine.wallet!,
+        },
+    }
     const response = await fetch(
-        `${config.thirdweb.engine.url}/backend-wallet/${config.thirdweb.chainId}/${config.thirdweb.engine.wallet}/get-balance`,
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${config.thirdweb.engine.accessToken}`,
-                "x-backend-wallet-address": config.thirdweb.engine.wallet!,
-            },
-        }
+        url,
+        httpOptions
     );
 
     const result = await response.json();
@@ -47,18 +49,20 @@ export const httpFetchBalanceStatus = async () => {
 }
 
 export const httpFetchOwned = async (reciever: string) => {
-    console.log(config.thirdweb.engine.url)
+    const url = `${config.thirdweb.engine.url}/contract/${config.thirdweb.chainId}/${config.contractAddress
+        }/erc721/get-owned?walletAddress=${reciever.toLowerCase()}`
+    const httpOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${config.thirdweb.engine.accessToken}`,
+            "x-backend-wallet-address": config.thirdweb.engine.wallet!,
+        },
+    }
+  
     const response = await fetch(
-        `${config.thirdweb.engine.url}/contract/${config.thirdweb.chainId}/${config.contractAddress
-        }/erc721/get-owned?walletAddress=${reciever.toLowerCase()}`,
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${config.thirdweb.engine.accessToken}`,
-                "x-backend-wallet-address": config.thirdweb.engine.wallet!,
-            },
-        }
+        url,
+        httpOptions
     );
 
     const result = await response.json();
@@ -73,17 +77,20 @@ export const httpFetchOwned = async (reciever: string) => {
 
 
 export const httpMint = async (receiver: string) => {
+    const url = `${config.thirdweb.engine.url}/contract/${config.thirdweb.chainId}/${config.contractAddress}/erc721/claim-to`
+    const httpOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${config.thirdweb.engine.accessToken}`,
+            "x-backend-wallet-address": config.thirdweb.engine.wallet!,
+        },
+        body: JSON.stringify({ receiver: receiver.toLowerCase(), quantity: "1" }),
+    }
     const response = await fetch(
-        `${config.thirdweb.engine.url}/contract/${config.thirdweb.chainId}/${config.contractAddress}/erc721/claim-to`,
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${config.thirdweb.engine.accessToken}`,
-                "x-backend-wallet-address": config.thirdweb.engine.wallet!,
-            },
-            body: JSON.stringify({ receiver: receiver.toLowerCase(), quantity: "1" }),
-        }
+        url,
+        httpOptions
+
     );
 
     const result = await response.json();
