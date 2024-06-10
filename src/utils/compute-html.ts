@@ -54,7 +54,7 @@ export const computeHtml = ({
         />
         <meta
           property="fc:frame:target"
-          content="https://warpcast.com/digitalsimboja/0xc7903af7"
+          content="https://zora.co/collect/base:0x9ceafa7f98a33f8c93808c3cc0c80d4b94e7c229/premint-1?referrer=0x19e8037e5E8390128DC3da1b2AF4F3fD6a7962Ba"
         />
         <meta property="fc:frame:button:1" content="${content}" />
       </head>
