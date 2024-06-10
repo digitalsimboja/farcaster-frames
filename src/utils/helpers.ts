@@ -23,8 +23,8 @@ export const getActionData = async (req: NextRequest) => {
     const data = await req.json();
 
     const messageBytes = data.trustedData.messageBytes;
-    const action = await Warpcast.validateMessage(messageBytes);
-    //const action = data.mockFrameData
+    //const action = await Warpcast.validateMessage(messageBytes);
+    const action = data.mockFrameData
 
     const custody_address = action.interactor.custody_address;
     const fid: number = action.interactor.fid;

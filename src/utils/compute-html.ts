@@ -53,7 +53,7 @@ export const computeHtml = ({
           content="${config.hostUrl}${imagePath}"
         />
         <meta
-          property="fc:frame:post_url"
+          property="fc:frame:target"
           content="https://warpcast.com/digitalsimboja/0xc7903af7"
         />
         <meta property="fc:frame:button:1" content="${content}" />

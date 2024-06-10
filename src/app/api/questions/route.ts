@@ -49,7 +49,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   }
 
 
-  const isLastQuestion = idAsNumber === 10;
+  const isLastQuestion = idAsNumber === 2;
 
   if (isLastQuestion) {
     const stopTime = new Date().toISOString();

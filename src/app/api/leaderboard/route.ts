@@ -44,7 +44,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
        <meta property="fc:frame:button:1:action" content="link" />
        <meta property="fc:frame:button:1:target" content="https://evveland.com" />
        <meta property="fc:frame:button:2" content="Mint Free WarpHero Pass!" /> 
-       <meta property="fc:frame:button:2:action" content="post" />
+       <meta property="fc:frame:button:2:action" content="link" />
        <meta property="fc:frame:button:2:target"  content="https://warpcast.com/digitalsimboja/0xc7903af7" />
        </head></html>`
 
