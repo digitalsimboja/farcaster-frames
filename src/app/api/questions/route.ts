@@ -18,6 +18,19 @@ let userData: UserData = {
 }
 
 
+function formatTime(duration: number): string {
+  // Convert milliseconds to seconds
+  let seconds: number = Math.floor((duration / 1000) % 60);
+  let minutes: number = Math.floor((duration / (1000 * 60)) % 60);
+  let hours: number = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  // Pad the numbers with leading zeros if necessary
+  const pad = (num: number): string => (num < 10 ? "0" : "") + num;
+
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+}
+
+
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const searchParams = req.nextUrl.searchParams;
 
@@ -52,9 +65,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const isLastQuestion = idAsNumber === 2;
 
   if (isLastQuestion) {
-    const stopTime = new Date().toISOString();
-    const completionTimeMs = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
-    userData.completionTime = completionTimeMs.toString();
+    const stopTime: string = new Date().toISOString();
+    const completionTimeMs: number = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
+    userData.completionTime = formatTime(completionTimeMs);
 
     const htmlContent = `<!DOCTYPE html><html><head>
     <title>Join Leaderboard</title>
