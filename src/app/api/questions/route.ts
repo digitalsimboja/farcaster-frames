@@ -48,7 +48,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(computeHtml({
       imagePath: `/images/ethereum/og.jpeg`,
       postType: "join",
-      content: "Qiuz already taken! Mint NFT"
+      content: "Join Community"
     }))
 
   }

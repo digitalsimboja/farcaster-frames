@@ -11,7 +11,7 @@ export const computeHtml = ({
   content,
 }: ComputeHtmlParameters) => {
 
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
     <html>
       <head>
         <title>${postType}</title>
@@ -27,12 +27,9 @@ export const computeHtml = ({
         />
         <meta
           property="fc:frame:target"
-          content=""
+          content="https://warpcast.com/~/channel/warpheroes"
         />
         <meta property="fc:frame:button:1" content="${content}" />
-        <meta property="fc:frame:button:2" content="Join Community!" /> 
-        <meta property="fc:frame:button:2:action" content="link" />
-        <meta property="fc:frame:button:2:target"  content="https://warpcast.com/~/channel/warpheroes" />
       </head>
       <body>
         <p>${content}</p>
