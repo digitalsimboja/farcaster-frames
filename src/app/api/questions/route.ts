@@ -73,7 +73,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <title>Join Leaderboard</title>
     <meta property="og:image" content="${config.hostUrl}/images/${protocol}/result.png" />
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${config.hostUrl}/images/${protocol}/result.png" />
+    <meta property="fc:frame:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
     <meta property="fc:frame:button:1" content="Find out more!" />
     <meta property="fc:frame:button:1:action" content="link" />
     <meta property="fc:frame:button:1:target"  content="https://farcaster-frames-sigma.vercel.app/concept" />
