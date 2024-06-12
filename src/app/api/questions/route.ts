@@ -46,7 +46,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   if (userExists) {
     const htmlContent = `<!DOCTYPE html><html><head>
-    <title>Join Leaderboard</title>
+    <title>Join Community</title>
     <meta property="og:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
@@ -64,19 +64,21 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   if (!userData.custody_address) {
     userData.fid = fid as unknown as string;
-    userData.username = username;
+    userData.username = username ? username : "warphero";
     userData.custody_address = custody_address;
     userData.startTime = new Date().toISOString();
     userData.protocol = protocol;
   }
 
 
-  const isLastQuestion = idAsNumber === 10;
+  const isLastQuestion = idAsNumber === 2;
 
   if (isLastQuestion) {
     const stopTime: string = new Date().toISOString();
     const completionTimeMs: number = new Date(stopTime).getTime() - new Date(userData.startTime).getTime();
     userData.completionTime = formatTime(completionTimeMs);
+
+    await saveUserData(userData);
 
     const htmlContent = `<!DOCTYPE html><html><head>
     <title>Join Leaderboard</title>
@@ -90,8 +92,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:button:2:action" content="post" />
     <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?protocol=${protocol}" />
     </head></html>`
-
-    await saveUserData(userData);
 
     return new NextResponse(htmlContent)
 
