@@ -1,7 +1,29 @@
 import { UserData } from "@/database/user";
 
+function timeStringToMilliseconds(timeString: string): number {
+  const [hours, minutes, seconds] = timeString.split(":").map(Number);
+  return (hours * 3600 + minutes * 60 + seconds) * 1000;
+}
 
-function generateJSX(userDataList: UserData[]): JSX.Element {
+function generateJSX(
+  userDataList: UserData[],
+  custodyAddress: string
+): JSX.Element {
+  const sortedUserDataList = userDataList.sort(
+    (a, b) =>
+      timeStringToMilliseconds(a.completionTime) -
+      timeStringToMilliseconds(b.completionTime)
+  );
+
+  const userIndex = sortedUserDataList.findIndex(
+    (userData) => userData.custody_address === custodyAddress
+  );
+
+  const startIndex = Math.max(userIndex - 2, 0);
+  const endIndex = Math.min(userIndex + 3, sortedUserDataList.length);
+
+  const relevantUsers = sortedUserDataList.slice(startIndex, endIndex);
+
   const jsx = (
     <div
       style={{
@@ -10,7 +32,7 @@ function generateJSX(userDataList: UserData[]): JSX.Element {
         display: "flex",
         width: "100%",
         height: "100%",
-        backgroundColor: "f4f4f4",
+        backgroundColor: "#f4f4f4",
         padding: 50,
         lineHeight: 1.2,
         fontSize: 24,
@@ -24,9 +46,9 @@ function generateJSX(userDataList: UserData[]): JSX.Element {
         }}
       >
         <h2 style={{ textAlign: "center", color: "lightgray" }}>Leaderboard</h2>
-        {userDataList.map((userData, index) => (
+        {relevantUsers.map((userData, index) => (
           <div
-            key={index}
+            key={startIndex + index}
             style={{
               backgroundColor: "#007bff",
               color: "#fff",
@@ -36,9 +58,9 @@ function generateJSX(userDataList: UserData[]): JSX.Element {
               whiteSpace: "nowrap",
               overflow: "visible",
             }}
-          >{`#${index + 1}. ${userData.username} | ${
+          >{`#${startIndex + index + 1}. ${userData.username} | ${
             userData.completionTime
-          }ms`}</div>
+          }`}</div>
         ))}
       </div>
     </div>

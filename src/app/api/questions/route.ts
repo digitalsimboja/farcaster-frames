@@ -90,7 +90,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:button:1:target"  content="https://farcaster-frames-sigma.vercel.app/concept" />
     <meta property="fc:frame:button:2" content="See Leaderboard!" />
     <meta property="fc:frame:button:2:action" content="post" />
-    <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?protocol=${protocol}" />
+    <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${custody_address}" />
     </head></html>`
 
     return new NextResponse(htmlContent)
