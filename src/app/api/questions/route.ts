@@ -34,7 +34,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   if (userExists) {
     return new NextResponse(computeHtml({
       imagePath: `/images/ethereum/og.jpeg`,
-      postType: "mint",
+      postType: "join",
       content: "Qiuz already taken! Mint NFT"
     }))
 
@@ -61,10 +61,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="og:image" content="${config.hostUrl}/images/${protocol}/result.png" />
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${config.hostUrl}/images/${protocol}/result.png" />
-    <meta property="fc:frame:button:1" content="Mint Free NFT!" />
+    <meta property="fc:frame:button:1" content="Find out more!" />
     <meta property="fc:frame:button:1:action" content="link" />
-    <meta property="fc:frame:button:1:target"  content="https://zora.co/collect/base:0x9ceafa7f98a33f8c93808c3cc0c80d4b94e7c229/premint-1?referrer=0x19e8037e5E8390128DC3da1b2AF4F3fD6a7962Ba" />
-    <meta property="fc:frame:button:2" content="Check Leaderboard!" />
+    <meta property="fc:frame:button:1:target"  content="https://farcaster-frames-sigma.vercel.app/concept" />
+    <meta property="fc:frame:button:2" content="See Leaderboard!" />
     <meta property="fc:frame:button:2:action" content="post" />
     <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?protocol=${protocol}" />
     </head></html>`

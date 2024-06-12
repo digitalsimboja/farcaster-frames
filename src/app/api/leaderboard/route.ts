@@ -40,12 +40,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
        <meta property="og:image" content="${imagePath}" />
        <meta property="fc:frame" content="vNext" />
        <meta property="fc:frame:image" content="${imagePath}" />
-       <meta property="fc:frame:button:1" content="Learn More!" />
-       <meta property="fc:frame:button:1:action" content="link" />
-       <meta property="fc:frame:button:1:target" content="https://evveland.com" />
-       <meta property="fc:frame:button:2" content="Mint Free WarpHero Pass!" /> 
+       <meta property="fc:frame:button:2" content="Join Community!" /> 
        <meta property="fc:frame:button:2:action" content="link" />
-       <meta property="fc:frame:button:2:target"  content="https://zora.co/collect/base:0x9ceafa7f98a33f8c93808c3cc0c80d4b94e7c229/premint-1?referrer=0x19e8037e5E8390128DC3da1b2AF4F3fD6a7962Ba" />
+       <meta property="fc:frame:button:2:target"  content="https://warpcast.com/~/channel/warpheroes" />
+       <meta property="fc:frame:button:1" content="Tip $DEGEN!" />
+       <meta property="fc:frame:button:1:action" content="link" />
+       <meta property="fc:frame:button:1:target" content="" />
        </head></html>`
 
         return new NextResponse(htmlContent)
