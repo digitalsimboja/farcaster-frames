@@ -45,11 +45,20 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const userExists = await getUserDataByAddress(custody_address)
 
   if (userExists) {
-    return new NextResponse(computeHtml({
-      imagePath: `/images/ethereum/og.jpeg`,
-      postType: "join",
-      content: "Join Community"
-    }))
+    const htmlContent = `<!DOCTYPE html><html><head>
+    <title>Join Leaderboard</title>
+    <meta property="og:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
+    <meta property="fc:frame:button:1" content="Join Community" />
+    <meta property="fc:frame:button:1:action" content="link" />
+    <meta property="fc:frame:button:1:target"  content="https://warpcast.com/~/channel/warpheroes" />
+    <meta property="fc:frame:button:2" content="Tip $DEGEN!" />
+    <meta property="fc:frame:button:2:action" content="post" />
+    <meta property="fc:frame:button:2:target" content="" />
+    </head></html>`
+
+    return new NextResponse(htmlContent)
 
   }
 
@@ -71,7 +80,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     const htmlContent = `<!DOCTYPE html><html><head>
     <title>Join Leaderboard</title>
-    <meta property="og:image" content="${config.hostUrl}/images/${protocol}/result.png" />
+    <meta property="og:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
     <meta property="fc:frame:button:1" content="Find out more!" />
