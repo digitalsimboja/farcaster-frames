@@ -40,7 +40,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const { custody_address, fid, castHash, username } = await getActionData(req)
 
-  const protocol = getCastHashProtocol(castHash)
+  //const protocol = getCastHashProtocol(castHash)
+  const protocol = "ethereum"
 
   const userExists = await getUserDataByAddress(custody_address)
 
