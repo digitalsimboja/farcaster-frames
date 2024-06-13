@@ -7,7 +7,6 @@ import { generateJSX } from '../common';
 import { join } from 'path';
 import { uploadImage } from '@/utils/cloudinary';
 import { UserData, getAllUserData } from '@/database/user';
-import { config } from '@/config/config';
 
 const fontPath = join(process.cwd(), 'Roboto-Regular.ttf');
 const fontData = fs.readFileSync(fontPath);
@@ -18,10 +17,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         const searchParams = req.nextUrl.searchParams;
         const custody_address: any = searchParams.get("address")
 
-        const userDataList: UserData[] = (await getAllUserData()).slice(0, 10);
+        const userDataList: UserData[] = await getAllUserData();
         const jsx = generateJSX(userDataList, custody_address);
-
-        console.log(userDataList)
 
         const svg = await satori(jsx, {
             width: 600,
@@ -47,8 +44,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         <meta property="fc:frame:button:1:action" content="link" />
         <meta property="fc:frame:button:1:target"  content="https://warpcast.com/~/channel/warpheroes" />
         <meta property="fc:frame:button:2" content="Tip $DEGEN!" />
-        <meta property="fc:frame:button:2:action" content="post" />
-        <meta property="fc:frame:button:2:target" content="" />
+        <meta property="fc:frame:button:2:action" content="link" />
+        <meta property="fc:frame:button:2:target" content="https://warpcast.com/~/channel/warpheroes" />
         </head></html>`
 
         return new NextResponse(htmlContent)
