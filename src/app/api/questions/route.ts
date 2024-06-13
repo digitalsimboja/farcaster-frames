@@ -88,7 +88,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:image" content="${config.hostUrl}/images/${protocol}/result.jpeg" />
     <meta property="fc:frame:button:1" content="Find out more!" />
     <meta property="fc:frame:button:1:action" content="link" />
-    <meta property="fc:frame:button:1:target"  content="https://farcaster-frames-sigma.vercel.app/concept" />
+    <meta property="fc:frame:button:1:target"  content="https://warpheroes.xyz/concept" />
     <meta property="fc:frame:button:2" content="See Leaderboard!" />
     <meta property="fc:frame:button:2:action" content="post" />
     <meta property="fc:frame:button:2:target" content="${config.hostUrl}/api/leaderboard?address=${custody_address}" />
