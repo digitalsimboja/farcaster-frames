@@ -72,7 +72,6 @@ const Leaderboard: React.FC = () => {
           timeStringToMilliseconds(b.completionTime)
       );
       const slicedUserDataList = sortedUserDataList.slice(0, 20);
-      console.log(slicedUserDataList);
       setUserData(slicedUserDataList);
       setLoading(false);
     };
