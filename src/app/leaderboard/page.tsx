@@ -65,13 +65,15 @@ const Leaderboard: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data: UserData[] = await fetchAllUserData();
-      const sortedUserDataList = data.sort(
+      const userDataList: UserData[] = await fetchAllUserData();
+      const sortedUserDataList = userDataList.sort(
         (a, b) =>
           timeStringToMilliseconds(a.completionTime) -
           timeStringToMilliseconds(b.completionTime)
       );
-      setUserData(sortedUserDataList);
+      const slicedUserDataList = sortedUserDataList.slice(0, 20);
+      console.log(slicedUserDataList);
+      setUserData(slicedUserDataList);
       setLoading(false);
     };
 

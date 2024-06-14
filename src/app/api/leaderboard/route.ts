@@ -20,8 +20,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         const userDataList: UserData[] = await getAllUserData();
         const jsx = generateJSX(userDataList, custody_address);
 
-        console.log(jsx);
-
         const svg = await satori(jsx, {
             width: 600,
             height: 400,
