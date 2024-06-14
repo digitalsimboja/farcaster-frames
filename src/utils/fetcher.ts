@@ -40,7 +40,6 @@ export const httpFetchBalanceStatus = async () => {
 
     const result = await response.json();
 
-    console.log(result)
     if (!result.success) {
         throw new Error(`Validation failed: ${result.error}`);
     }
@@ -67,7 +66,6 @@ export const httpFetchOwned = async (reciever: string) => {
 
     const result = await response.json();
 
-    console.log(result)
     if (!result.success) {
         throw new Error(`Validation failed: ${result.error}`);
     }
@@ -94,8 +92,7 @@ export const httpMint = async (receiver: string) => {
     );
 
     const result = await response.json();
-
-    console.log(result)
+    
     if (!result.success) {
         throw new Error(`Validation failed: ${result.error}`);
     }
