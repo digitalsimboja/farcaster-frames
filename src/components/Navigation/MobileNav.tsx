@@ -20,10 +20,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ onClose }) => {
           <Link href="/">Home</Link>
         </li>
         <li className="hover:text-gray-300">
-          <Link href="/concept">Concept</Link>
+          <Link href="">Concept</Link>
         </li>
         <li className="hover:text-gray-300">
-          <Link href="/dao">DAO</Link>
+          <Link href="">DAO</Link>
         </li>
         <li className="hover:text-gray-300">
           <Link href="/leaderboard">Leaderboard</Link>

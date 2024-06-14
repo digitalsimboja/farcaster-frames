@@ -109,10 +109,10 @@ const DesktopNav: React.FC = () => {
   return (
     <>
       <div className="hidden md:flex justify-between gap-8 items-center font-bold relative ">
-        <Link href="/concept" className="">
+        <Link href="#" className="">
           Concept
         </Link>
-        <Link href="/dao" className="">
+        <Link href="#" className="">
           DAO
         </Link>
         <Link href="/leaderboard">Leaderboard</Link>
