@@ -6,6 +6,7 @@ import { FC, useEffect, useState } from "react";
 import { config } from "@/config/config";
 import Navbar from "@/components/Navigation/Navbar";
 import Footer from "@/components/Footer";
+import { timeStringToMilliseconds } from "@/utils/helpers";
 
 export const revalidate = 3600;
 
@@ -64,13 +65,19 @@ const Leaderboard: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchAllUserData();
-      setUserData(data);
+      const data: UserData[] = await fetchAllUserData();
+      const sortedUserDataList = data.sort(
+        (a, b) =>
+          timeStringToMilliseconds(a.completionTime) -
+          timeStringToMilliseconds(b.completionTime)
+      );
+      setUserData(sortedUserDataList);
       setLoading(false);
     };
 
     fetchData();
   }, []);
+ 
 
   return (
     <>

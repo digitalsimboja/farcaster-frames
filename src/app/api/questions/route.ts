@@ -19,12 +19,10 @@ let userData: UserData = {
 
 
 function formatTime(duration: number): string {
-  // Convert milliseconds to seconds
   let seconds: number = Math.floor((duration / 1000) % 60);
   let minutes: number = Math.floor((duration / (1000 * 60)) % 60);
   let hours: number = Math.floor((duration / (1000 * 60 * 60)) % 24);
 
-  // Pad the numbers with leading zeros if necessary
   const pad = (num: number): string => (num < 10 ? "0" : "") + num;
 
   return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
