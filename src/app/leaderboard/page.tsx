@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { timeStringToMilliseconds } from "@/utils/helpers";
 
 export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 type LeaderboardProps = {
   userData: UserData[];
