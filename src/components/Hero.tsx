@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
 
           <div>
             <Image
-              src="/images/hero.jpeg"
+              src="/images/hero.png"
               alt="WarpHeroes-landing"
               width={500}
               height={400}
